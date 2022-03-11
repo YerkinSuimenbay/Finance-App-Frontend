@@ -1,0 +1,32 @@
+@import '../../../styles/constants';
+
+.input-field {
+    // display: flex;
+    // flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    // row-gap: 1px;
+
+    display: block;
+    width: 100%;
+
+    label {
+    }
+    
+    
+    input {
+        display: block;
+        width: 100%;
+        margin-top: 1px;
+        height: 40px;
+        padding: 9px 10px;  //16px
+        line-height: 20px;
+        background-color: rgb(232, 240, 254);
+        border: 1px solid;
+        border-radius: $radius;
+
+        &:read-only {
+            cursor: pointer;
+        }
+    }
+}

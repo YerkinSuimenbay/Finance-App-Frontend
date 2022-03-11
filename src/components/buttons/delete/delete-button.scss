@@ -1,0 +1,17 @@
+@import '../../../styles/constants';
+
+.delete-btn {
+    // border: 1px solid;
+    // height: 2rem;
+    padding: 3px 6px;
+    border-radius: $radius;
+
+    background-color: $color-4-2; 
+    color: #d7818a;
+
+    &:hover {
+       background-color: #bf192c;  //#d74d5c  //#c34150
+       color: $color-4-2;
+    }
+}
+

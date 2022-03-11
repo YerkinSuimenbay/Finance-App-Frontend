@@ -1,0 +1,55 @@
+.select-field {
+    position: relative;
+
+    &__arrow {
+        position: absolute;
+        right: 6px;
+        top: 33px;
+        width: 25px;
+        pointer-events: none;
+    }
+
+    .input-field {
+        label {
+            pointer-events: none;
+        }
+        input {
+            padding-right: 30px;
+        }
+    }
+
+    &__options {
+        z-index: 2;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+
+        background: #ffffff;
+        border-radius: 5px;
+        border: 1px solid;
+        overflow: hidden;
+        box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+    }
+    
+    &__option {
+        padding: 3px 10px;
+        font-size: 14px;
+        border-bottom: 1px solid hsla(210,18%,87%,1);
+        line-height: 26px;
+
+        &:hover {
+            background-color: rgba(234,238,242,0.5);
+        }
+
+        &.loading-option {
+            color: #787c7e;
+            cursor: progress;
+        }
+        &.no-option {
+            color: red;
+            cursor: none;
+            // background-color: bisque;
+        }
+    }
+}

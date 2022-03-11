@@ -1,0 +1,35 @@
+@import '../../../utils/styles/constants/constants';
+
+// FEEDBACK
+.feedback {
+    position: fixed;
+    top: 4.1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+    text-align: center;
+    background-color: rgba(144, 252, 198, 0.308);  // default
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);;
+    // color: $clr-green-dark;
+    padding: .5rem;
+    display: none;
+    border-radius: 10px;
+    // text-transform: capitalize;
+    background-color: rgb(142, 229, 255);
+    color: #1c4b72;
+    white-space: pre-wrap;
+
+    // background-color: #4d7a95;  // UNCOMMENT THIS AND BELOW LINE TOGETHER IF NEEDED
+    // color: #fff;
+
+    &.show {
+        display: block;
+        z-index: 10000;
+        
+        &.danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+    }
+}

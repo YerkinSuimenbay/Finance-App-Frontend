@@ -1,0 +1,16 @@
+/* primary/main color */
+/* lighter shades of primary color */
+/* darkest grey - used for headings */
+/* grey used for paragraphs */
+.transaction-field {
+  position: relative;
+}
+.transaction-field .input-field input {
+  padding-right: 38px;
+}
+.transaction-field__currency {
+  position: absolute;
+  right: 6px;
+  top: 33px;
+  pointer-events: none;
+}/*# sourceMappingURL=transaction-field.css.map */

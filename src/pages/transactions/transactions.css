@@ -1,0 +1,26 @@
+/* primary/main color */
+/* lighter shades of primary color */
+/* darkest grey - used for headings */
+/* grey used for paragraphs */
+.transactions__switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  margin: 1rem 0;
+}
+.transactions__switch button {
+  color: #49505b;
+  padding: 5px 10px;
+  border-radius: 0.25rem;
+  background-color: #fff;
+}
+.transactions__switch button:hover {
+  background-color: #818da0;
+  background-color: #bec2c7;
+}
+.transactions__switch button.active {
+  background-color: #49505b;
+  color: #fff;
+}/*# sourceMappingURL=transactions.css.map */

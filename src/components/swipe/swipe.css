@@ -1,0 +1,36 @@
+.swipe-container {
+  transition: all 0.4s;
+  transform: translateX(100%);
+}
+.swipe-container.show {
+  transform: translateX(0);
+}
+
+.swipe {
+  position: fixed;
+  background: #fff;
+  padding: 10px;
+}
+.swipe__left {
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 500px;
+  max-width: 100%;
+  z-index: 100;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+.swipe__left__title {
+  text-align: center;
+  font-weight: 500;
+}
+.swipe__left__body {
+  margin-top: 1rem;
+}
+.swipe__left__body__form {
+  row-gap: 0.3rem !important;
+  margin-bottom: 2rem;
+}
+.swipe__left__body__form .submit-form-btn {
+  margin-top: 20px;
+}/*# sourceMappingURL=swipe.css.map */

@@ -1,0 +1,14 @@
+/* primary/main color */
+/* lighter shades of primary color */
+/* darkest grey - used for headings */
+/* grey used for paragraphs */
+.delete-btn {
+  padding: 3px 6px;
+  border-radius: 0.25rem;
+  background-color: #FCF6F5FF;
+  color: #d7818a;
+}
+.delete-btn:hover {
+  background-color: #bf192c;
+  color: #FCF6F5FF;
+}/*# sourceMappingURL=delete-button.css.map */

@@ -1,17 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from './app/App';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import './styles/global/global.css'
+// MUI ROBOTO FONT
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import axios from 'axios';
+
+axios.defaults.baseURL = process.env.REACT_APP_SERVER_URL;
+if (localStorage && localStorage.token) {
+    const access_token = localStorage.getItem('token');
+    axios.defaults.headers.common['Authorization'] = `Token ${access_token}`
+}
+axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

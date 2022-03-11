@@ -1,0 +1,18 @@
+@import '../../../styles/constants';
+.transaction-field {
+    position: relative;
+
+    .input-field {
+        input {
+            padding-right: 38px;
+        }
+    }
+
+    &__currency {
+        position: absolute;
+        right: 6px;
+        top: 33px;
+        // width: 25px;
+        pointer-events: none;
+    }
+}

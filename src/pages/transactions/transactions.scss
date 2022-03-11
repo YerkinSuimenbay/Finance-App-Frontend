@@ -1,0 +1,37 @@
+// @import '../../styles/constants';
+@import '../../styles/constants';
+
+.transactions-page {
+    // .page__list {
+    //     row-gap: 10px;
+    // }
+}
+
+.transactions {
+    &__switch {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 1rem;
+        margin: 1rem 0;
+
+        button {
+            color: $topbar-color;
+            padding: 5px 10px;
+            border-radius: $radius;
+            background-color: #fff;
+
+            &:hover {
+                background-color: #818da0;
+                background-color: #bec2c7;
+                // color: #fff;
+
+            }
+            
+            &.active {
+                background-color: $topbar-color;
+                color: #fff;
+            }
+        }
+    }
+}

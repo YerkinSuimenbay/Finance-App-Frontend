@@ -1,0 +1,47 @@
+/* primary/main color */
+/* lighter shades of primary color */
+/* darkest grey - used for headings */
+/* grey used for paragraphs */
+.profile {
+  display: grid;
+  row-gap: 1rem;
+}
+.profile__img-container {
+  width: 200px;
+  height: 200px;
+  background: #e3c9c9;
+  background: #cccccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+}
+.profile__item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  align-items: center;
+}
+.profile__item__key {
+  justify-self: end;
+  color: #817f7f;
+}
+.profile__btns {
+  justify-self: center;
+  margin-top: 2rem;
+  display: grid;
+  row-gap: 0.5rem;
+}
+.profile__btns button {
+  padding: 3px 6px;
+  border-radius: 0.25rem;
+  color: #d7818a;
+}
+.profile__btns button:hover {
+  background-color: #FCF6F5FF;
+  color: #d7818a;
+  background-color: #bf192c;
+  color: #FCF6F5FF;
+}/*# sourceMappingURL=profile.css.map */

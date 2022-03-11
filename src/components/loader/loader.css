@@ -1,0 +1,70 @@
+/* primary/main color */
+/* lighter shades of primary color */
+/* darkest grey - used for headings */
+/* grey used for paragraphs */
+.loader-container {
+  z-index: 100;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  row-gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+}
+.loader-container.fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  color: #fff;
+  color: #00ff15;
+}
+
+.loader-text {
+  margin-top: 1rem;
+}
+
+.animated-background-loader {
+  position: relative;
+  min-height: 200px;
+  border-radius: 10px;
+  background-color: #d4dce5;
+  background: #d0d7dd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animated-background-loader:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100px);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  -webkit-animation: loading 1s infinite;
+          animation: loading 1s infinite;
+}
+
+@-webkit-keyframes loading {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes loading {
+  100% {
+    transform: translateX(100%);
+  }
+}/*# sourceMappingURL=loader.css.map */

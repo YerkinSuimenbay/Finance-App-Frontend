@@ -1,0 +1,12 @@
+.radio-field {
+    &__options {
+        display: flex;
+        column-gap: 1rem;
+    }
+    
+    &__option {
+        display: flex;
+        column-gap: 3px;
+        align-items: center;
+    }
+}

@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+@import '../constants';
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+    // height: 100%;
+    // min-height: 100vh;
+    background-color: #e8e8e8;
+}
+
+svg {
+    height: auto;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+
+    $link-color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    &:active,
+    &:visited,
+    &:focus {
+        color: unset;
+    }
+
+    &:hover {
+        color: $link-color;
+    }
+    
+    &.active {
+        // color: $link-color;
+        color: $clr-primary-7;
+    }
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    transition: all .3s;
+}
+
+.page {
+    width: $width;
+    // margin: $nav-height auto 0;
+    // height: calc(100vh - $nav-height);
+    margin: 0 auto;
+    // height: 100vh;
+    position: relative;
+
+    &__title {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    &__list {
+        display: grid;
+        row-gap: 1px;
+    }
+    
+    &__create-btn-container {
+        position: fixed;
+        width: 95%;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 30px;
+    }
+
+    &__create-btn {
+        z-index: 10;
+        background-color: #555;
+        color: #e8e8e8;
+        margin-left: auto;
+        padding: 10px;
+        border-radius: 5px;
+
+        display: flex;
+        column-gap: 3px;
+        svg {
+            width: 20px;
+        }
+    }
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .4);
+    background: rgba(25, 31, 40, 0.5);
+    z-index: $z-index-bg;
+    cursor: pointer;
+}
+
+.form {
+    display: flex;
+    row-gap: 1rem;
+    flex-direction: column;
+}
+
+.list-item {
+    display: flex;
+    column-gap: 1rem;
+    background-color: #fff;
+    padding: 5px;
+    box-shadow: $list-item-box-shadow;
+    cursor: pointer;
+
+    &:hover {
+        // background-color: antiquewhite;
+        // background-color: $clr-primary-10;
+        background-color: $clr-grey-8;
+    }
+
+    &__left {
+        padding: 3px;
+
+        background: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        align-self: center;
+    }
+
+    &__middle {
+        flex: 1;
+    }
+
+    &__right {
+
+    }
+}
+
+.error-msg {
+    text-align: center;
+    color: #bf192c;
+    font-weight: 500;
+    font-family: monospace;
+    margin-top: 1rem;
+}
+
+// Hide Input Number Arrows START
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+// Hide Input Number Arrows END
+
+
+// SCROLL START
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 16px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+/* Directional buttons at the top and bottom of the scrollbar */
+::-webkit-scrollbar-button {
+    display:none;
+}
+// SCROLL END
+
+

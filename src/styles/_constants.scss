@@ -1,0 +1,130 @@
+$width: 95%;
+$nav-height: 60px;
+$z-index-bg: 1000;
+$topbar-color: #49505b;  //191F28
+$list-item-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+// COLOR PAIRS FOR BUTTON AND ON HOVER
+$color-1-1: #0063B2FF;
+$color-1-2: #9CC3D5FF;
+
+$color-2-1: #603F83FF;
+$color-2-2: #C7D3D4FF;
+
+$color-3-1: #2BAE66FF;
+$color-3-2: #FCF6F5FF;
+
+$color-4-1: #990011FF;
+$color-4-2: #FCF6F5FF;
+
+$color-5-1: #FAEBEFFF;
+$color-5-2: #333D79FF;
+
+$color-6-1: #F2EDD7FF;
+$color-6-2: #755139FF;
+
+$color-7-1: #F1F4FFFF;
+$color-7-2: #A2A2A1FF;
+
+
+$color-8-1: #89ABE3FF;
+$color-8-2: #fcf6f557;
+$color-8-2-hover: #FCF6F5FF;
+
+// BODY
+$body-background-color: #E5E5E5;
+
+// SIDEBAR
+$primary-color: #393F49;
+$history-color: #585E69;
+$primary-color-2: #F3FAFF;
+$hover-color: #E5ECF9;
+$active-color: #D6DDEA;
+
+$height-sidebar-top: 60px;
+$height-sidebar-bottom: 50px;
+$width-sidebar-closed: 56px;
+$width-sidebar-open: 225px;
+
+// TOPBAR
+
+
+// TABLE
+$table-caption-background-color: #393F49;
+$thead-background-color: #F3FAFF;
+$table-border-color: #D6DDEA;
+$table-row-hover-color: #E5ECF9;
+$table-height: 500px;
+
+// COLORS
+$yellow-color:  #FFC45B;  // 
+$yellow-sort-color: #FFBF49;  // 700
+$yellow-sort-hover-color: #FFE34F;  // 500
+
+$yellow-color-900: #F28238;
+$yellow-color-800: #FAA843;
+$yellow-color-700: #FFBF49;
+$yellow-color-600: #FFD750;
+$yellow-color-500: #FFE34F;
+
+$primary-color-900: #191F28;
+$primary-color-800: #393F49;
+$primary-color-600: #6C727E;
+$primary-color-500: #949BA7;
+$primary-color-400: #B4BBC7;
+$primary-color-300: #D6DDEA;
+$primary-color-200: #E5ECF9;
+$primary-color-100: #EDF4FF;
+$primary-color-50: #F3FAFF;
+
+
+// INPUT FIELDS
+$input-focus-color: #015ecc;
+
+// CLOSE BUTTON COLORS
+$close-btn-color: #E5ECF9;
+$close-btn-hover-color: #D6DDEA;
+$close-btn-active-color: #B4BBC7;
+
+
+
+
+
+$clr-primary-1: hsl(205, 86%, 17%);
+$clr-primary-2: hsl(205, 77%, 27%);
+$clr-primary-3: hsl(205, 72%, 37%);
+$clr-primary-4: hsl(205, 63%, 48%);
+/* primary/main color */
+$clr-primary-5: hsl(205, 78%, 60%);
+/* lighter shades of primary color */
+$clr-primary-6: hsl(205, 89%, 70%);
+$clr-primary-7: hsl(205, 90%, 76%);
+$clr-primary-8: hsl(205, 86%, 81%);
+$clr-primary-9: hsl(205, 90%, 88%);
+$clr-primary-10: hsl(205, 100%, 96%);
+/* darkest grey - used for headings */
+$clr-grey-1: hsl(209, 61%, 16%);
+$clr-grey-2: hsl(211, 39%, 23%);
+$clr-grey-3: hsl(209, 34%, 30%);
+$clr-grey-4: hsl(209, 28%, 39%);
+/* grey used for paragraphs */
+$clr-grey-5: hsl(210, 22%, 49%);
+$clr-grey-6: hsl(209, 23%, 60%);
+$clr-grey-7: hsl(211, 27%, 70%);
+$clr-grey-8: hsl(210, 31%, 80%);
+$clr-grey-9: hsl(212, 33%, 89%);
+$clr-grey-10: hsl(206, 14%, 44%);
+$clr-white: #fff;
+$clr-red-dark: hsl(360, 67%, 44%);
+$clr-red-light: hsl(360, 71%, 66%);
+$clr-green-dark: hsl(125, 67%, 44%);
+$clr-green-light: hsl(125, 71%, 66%);
+$clr-yellow-light: hsl(56, 71%, 66%);
+$clr-black: #222;
+$transition: all 0.3s linear;
+$spacing: 0.1rem;
+$radius: 0.25rem;
+$light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+$dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+$max-width: 1170px;
+$fixed-width: 620px;

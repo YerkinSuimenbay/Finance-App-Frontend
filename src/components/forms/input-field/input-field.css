@@ -1,0 +1,27 @@
+/* primary/main color */
+/* lighter shades of primary color */
+/* darkest grey - used for headings */
+/* grey used for paragraphs */
+.input-field {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  width: 100%;
+}
+.input-field input {
+  display: block;
+  width: 100%;
+  margin-top: 1px;
+  height: 40px;
+  padding: 9px 10px;
+  line-height: 20px;
+  background-color: #e8f0fe;
+  border: 1px solid;
+  border-radius: 0.25rem;
+}
+.input-field input:-moz-read-only {
+  cursor: pointer;
+}
+.input-field input:read-only {
+  cursor: pointer;
+}/*# sourceMappingURL=input-field.css.map */

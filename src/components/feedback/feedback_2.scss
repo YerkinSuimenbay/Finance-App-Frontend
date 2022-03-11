@@ -1,0 +1,15 @@
+@import '../../../utils/styles/constants/constants';
+
+// FEEDBACK
+.feedback {
+    &__btn {
+        background: #f1d3d3;
+        padding: .4rem;
+        border-radius: 5px;
+        margin: 10px auto 0;
+
+        &:hover {
+            background-color: rgb(197, 100, 100);
+        }
+    }
+}

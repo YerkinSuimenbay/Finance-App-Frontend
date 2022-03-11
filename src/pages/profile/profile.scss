@@ -1,0 +1,65 @@
+@import '../../styles/constants';
+
+.profile {
+    display: grid;
+    row-gap: 1rem;
+
+    &__img-container {
+        width: 200px;
+        height: 200px;
+        background: #e3c9c9;
+        background: #cccccc;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem auto;
+    }
+
+    &__item {
+        display: grid;
+        // grid-template-columns: 100px auto;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1rem;
+        align-items: center;
+
+        &__key {
+            justify-self: end;
+            color: #817f7f;
+        }
+
+        &__value {
+            // background: #4f4f4f;
+            // background: #24292f;
+            // background:#49505b;
+            // width: min-content;
+            // color: #FFF;
+            // padding: 3px 1rem;
+            // border-radius: 5px;
+        }
+    }
+
+    &__btns {
+        justify-self: center;
+        margin-top: 2rem;
+        display: grid;
+        row-gap: 0.5rem;
+
+        button {
+            padding: 3px 6px;
+            border-radius: $radius;
+
+            // background-color: $color-4-2; 
+            color: #d7818a;
+            
+            &:hover {
+                background-color: $color-4-2; 
+                color: #d7818a;
+                background-color: #bf192c;  //#d74d5c  //#c34150
+                color: $color-4-2;
+
+            
+            }
+        }
+    }
+}
