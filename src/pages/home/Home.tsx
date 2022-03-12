@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
-import { SelectField, TSelectOption } from '../../components/forms/select-field/SelectField'
-import { SelectFieldFetch } from '../../components/forms/select-field/SelectFieldFetch'
-import { useActions } from '../../hooks/useActions'
+import { PeriodField } from '../../components/forms/period-field/PeriodField'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
-import icons from '../../utils/icons/icons'
 
 export const Home: React.FC = () => {
   const store = useTypedSelector(state => state)
@@ -13,15 +10,7 @@ export const Home: React.FC = () => {
       <h2 style={{textAlign: 'center', marginTop: '2rem'}}>
         Hello {store.user.name}
       </h2>
-
-      <div className="icons">
-        {Object.keys(icons).map(icon => {
-          const Icon = icons[icon]
-          return <div className='icon-container' aria-label={icon}>
-            <Icon key={icon} className='icon'/>
-          </div> 
-        })}
-      </div>
+      
     </div>
   )
 }

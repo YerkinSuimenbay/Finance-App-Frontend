@@ -1,0 +1,56 @@
+/* primary/main color */
+/* lighter shades of primary color */
+/* darkest grey - used for headings */
+/* grey used for paragraphs */
+.period-field {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.period-field__label {
+  margin-bottom: 3px;
+}
+.period-field .period {
+  background-color: aliceblue;
+  padding: 3px 8px;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.period-field .period:hover {
+  background-color: #d6dde4;
+}
+.period-field .period.active {
+  background-color: #b4bbc2;
+}
+
+.icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, auto));
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-items: center;
+}
+.icons .icon-container {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  padding: 8px;
+  border-radius: 50%;
+  background-color: #8ab9bd;
+}
+.icons .icon-container:hover {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+.icons .icon-container.active {
+  transform: scale(1.2);
+}
+.icons .icon {
+  fill: #fff;
+  width: 24px;
+  pointer-events: none;
+}/*# sourceMappingURL=period-field.css.map */

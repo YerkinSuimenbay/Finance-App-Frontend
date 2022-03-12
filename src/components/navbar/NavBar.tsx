@@ -4,6 +4,12 @@ import { NavLink } from 'react-router-dom'
 // import { useTypedSelector } from '../../hooks/useTypedSelector'
 import './navbar.css'
 
+enum EDefaultTransactionQueries {
+    type = 'expense',
+    grouped = 'true',
+    period = 'day',
+}
+
 export const NavBar: React.FC = () => {
     // const name = useTypedSelector(state => state.user.name)
     return (
@@ -20,7 +26,7 @@ export const NavBar: React.FC = () => {
                     >Home</NavLink>
                     <NavLink to='/accounts'>Accounts</NavLink>
                     <NavLink to='/categories'>Categories</NavLink>
-                    <NavLink to='/transactions?type=expense&grouped=true'>Transactions</NavLink>
+                    <NavLink to={`/transactions?type=${EDefaultTransactionQueries.type}&grouped=${EDefaultTransactionQueries.grouped}&period=${EDefaultTransactionQueries.period}`}>Transactions</NavLink>
                     {/* <NavLink to={`/${name}`}>My Profile</NavLink> */}
                     <NavLink to={`/profile`}>My Profile</NavLink>
                 </ul>

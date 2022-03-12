@@ -33,4 +33,7 @@
 .transactions__switch button.active {
   background-color: #49505b;
   color: #fff;
+}
+.transactions__periods {
+  margin: 1rem 0;
 }/*# sourceMappingURL=transactions.css.map */

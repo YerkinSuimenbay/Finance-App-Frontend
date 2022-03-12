@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CreateButton } from '../../components/buttons/create/CreateButton'
+import { PeriodField, TPeriod } from '../../components/forms/period-field/PeriodField'
 import { LoaderComponent } from '../../components/loader/Loader'
 import { Transaction } from '../../components/transaction/Transaction'
 import { useActions } from '../../hooks/useActions'
@@ -22,12 +23,13 @@ export const Transactions: React.FC = () => {
   const query = useQuery()
   const transactionType = query.get('type')
   const grouped = query.get('grouped')
+  const period = query.get('period') as TPeriod
   
   
   useEffect(() => {
-    const URL = `/transactions?type=${transactionType}&grouped=${grouped}`
+    const URL = `/transactions?type=${transactionType}&grouped=${grouped}&period=${period}`
     fetchTransactions(URL)
-  }, [transactionType, grouped])
+  }, [transactionType, grouped, period])
 
 
   const onClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void> => {
@@ -36,8 +38,13 @@ export const Transactions: React.FC = () => {
   }
 
   const switchTransactions = (newTransactionType: ETransactionType) => {
-    navigate(`/transactions?type=${newTransactionType}&grouped=${grouped}`)
+    navigate(`/transactions?type=${newTransactionType}&grouped=${grouped}&period=${period}`)
   }
+
+  const handlePeriodChange = (newPeriod: TPeriod) => {
+    navigate(`/transactions?type=${transactionType}&grouped=${grouped}&period=${newPeriod}`)
+  }
+
 
   if (loading) {
     return <LoaderComponent text='Loading transactions...'/>
@@ -56,6 +63,9 @@ export const Transactions: React.FC = () => {
         <button onClick={() => switchTransactions(ETransactionType.INCOME)} className={transactionType === ETransactionType.INCOME ? 'active' : ''}>{ETransactionType.INCOME.toUpperCase()}</button>
       </div>
     
+      <div className='transactions__periods'>
+        <PeriodField value={period} onChange={handlePeriodChange}/>
+      </div>
   
       <div className="page__list">
         {transactions.length 

@@ -7,6 +7,8 @@ import axios from "axios"
 import { formatValue } from "../../utils/js/formatValue"
 import moment from 'moment'
 import 'moment/locale/ru'
+import { TPeriod } from "../forms/period-field/PeriodField"
+import { useQuery } from "../../hooks/useQuery"
 // moment.locale('ru')
 interface IGroupedTransactionProps extends Omit<ITransaction, '_id account' | 'account' | 'comment' | 'createdAt' | 'updatedAt'> {
     // onClick: (id: string) => void;
@@ -17,6 +19,11 @@ export const Transaction: React.FC<IGroupedTransactionProps> = (props) => {
     const { type, amount, currency, color, category, icon } = props
     
     const { fetchTransaction, showSwipe, showFeedback } = useActions()
+
+    const query = useQuery()
+    const period = query.get('period') as TPeriod
+
+
 
     const [showTransitionInDetail, setShowTransitionInDetail] = useState(false)
     const [categorizedTransactions, setCategorizedTransactions] = useState<ITransaction[] | []>([])
@@ -34,7 +41,7 @@ export const Transaction: React.FC<IGroupedTransactionProps> = (props) => {
             setLoadingCategorizedTransactions(true)
             setShowTransitionInDetail(oldValue => !oldValue)
 
-            const res = await axios.get(`/transactions?type=${type}&category=${category}`)
+            const res = await axios.get(`/transactions?type=${type}&category=${category}&period=${period}`)
 
             setCategorizedTransactions(res.data.transactions)
         } catch (error) {
