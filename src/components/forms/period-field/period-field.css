@@ -3,6 +3,7 @@
 /* darkest grey - used for headings */
 /* grey used for paragraphs */
 .period-field {
+  position: relative;
   display: flex;
   gap: 1rem;
   justify-content: center;
@@ -22,6 +23,17 @@
 }
 .period-field .period.active {
   background-color: #b4bbc2;
+}
+.period-field__date-fields {
+  position: absolute;
+  top: 35px;
+  z-index: 10;
+  background: snow;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  display: flex;
+  gap: 1rem;
 }
 
 .icons {

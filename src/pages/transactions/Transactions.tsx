@@ -12,6 +12,17 @@ import icons from '../../utils/icons/icons'
 import './transactions.css'
 
 
+interface FixedPeriod {
+  newPeriod: TPeriod
+}
+
+interface RangePeriod {
+  newPeriod: 'year',
+  fromDate: string,
+  toDate: string,
+}
+
+type PeriodFieldChange = FixedPeriod | RangePeriod
 
 
 export const Transactions: React.FC = () => {
@@ -41,7 +52,13 @@ export const Transactions: React.FC = () => {
     navigate(`/transactions?type=${newTransactionType}&grouped=${grouped}&period=${period}`)
   }
 
-  const handlePeriodChange = (newPeriod: TPeriod) => {
+  const handlePeriodChange = (newPeriod: TPeriod, fromDate?: string, toDate?: string) => {
+    console.log(fromDate, toDate);
+    if (newPeriod === 'period') {
+      navigate(`/transactions?type=${transactionType}&grouped=${grouped}&period=${newPeriod}&from=${fromDate}&to=${toDate}`)
+      return
+    }
+    
     navigate(`/transactions?type=${transactionType}&grouped=${grouped}&period=${newPeriod}`)
   }
 
