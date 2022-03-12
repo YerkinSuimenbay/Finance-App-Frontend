@@ -9,6 +9,8 @@ import { CreateFormAccount } from "./CreateFormAccount"
 import { CreateFormCategory } from "./CreateFormCategory"
 import { CreateFormTransaction } from "./CreateFormTransaction"
 
+export type onChangeFunctionType = (name: string, value: string | number) => void
+
 interface CreateFormProps {
     // onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
     // onSubmit: (e: React.MouseEvent<HTMLButtonElement>) => void,
@@ -38,7 +40,7 @@ export const CreateForm: React.FC<CreateFormProps> = (props) => {
                 deleteItem: async () => await axios.delete(`/${currentPage}/${_id}`),
                 updateOrCreateItem: async () => mode === 'edit' ? await axios.patch(`${currentPage}/${_id}`, account) : await axios.post(`${currentPage}`, reqBody ),
                 fetchItems: () => fetchAccounts('/accounts'),
-                renderForm: (handleChange: (name: string, value: string | number) => void, handleSubmit: React.MouseEventHandler<HTMLButtonElement>) => <CreateFormAccount createForm={createForm} onChange={handleChange} onSubmit={handleSubmit} />
+                renderForm: (handleChange: onChangeFunctionType, handleSubmit: React.MouseEventHandler<HTMLButtonElement>) => <CreateFormAccount createForm={createForm} onChange={handleChange} onSubmit={handleSubmit} />
             }
         }
         if (currentPage === 'categories') {
@@ -50,7 +52,7 @@ export const CreateForm: React.FC<CreateFormProps> = (props) => {
                 deleteItem: async () => await axios.delete(`/${currentPage}/${_id}`),
                 updateOrCreateItem: async () => mode === 'edit' ? await axios.patch(`${currentPage}/${_id}`, category) : await axios.post(`${currentPage}`, reqBody ),
                 fetchItems: () => fetchCategories('/categories'),
-                renderForm: (handleChange: (name: string, value: string | number) => void, handleSubmit: React.MouseEventHandler<HTMLButtonElement>) => <CreateFormCategory createForm={createForm} onChange={handleChange} onSubmit={handleSubmit}/>
+                renderForm: (handleChange: onChangeFunctionType, handleSubmit: React.MouseEventHandler<HTMLButtonElement>) => <CreateFormCategory createForm={createForm} onChange={handleChange} onSubmit={handleSubmit}/>
             }
         }
         if (currentPage === 'transactions') {
@@ -62,7 +64,7 @@ export const CreateForm: React.FC<CreateFormProps> = (props) => {
                 deleteItem: async () => await axios.delete(`/${currentPage}/${_id}`),
                 updateOrCreateItem: async () => mode === 'edit' ? await axios.patch(`${currentPage}/${_id}`, transaction) : await axios.post(`${currentPage}`, reqBody ),
                 fetchItems: () => fetchTransactions(`/transactions?type=${type}&grouped=${grouped}`),
-                renderForm: (handleChange: (name: string, value: string | number) => void, handleSubmit: React.MouseEventHandler<HTMLButtonElement>) => <CreateFormTransaction createForm={createForm} onChange={handleChange} onSubmit={handleSubmit}/>
+                renderForm: (handleChange: onChangeFunctionType, handleSubmit: React.MouseEventHandler<HTMLButtonElement>) => <CreateFormTransaction createForm={createForm} onChange={handleChange} onSubmit={handleSubmit}/>
             }
         }
         return {}

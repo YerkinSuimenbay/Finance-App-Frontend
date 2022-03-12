@@ -8,19 +8,19 @@ import { formatValue } from "../../utils/js/formatValue"
 import moment from 'moment'
 import 'moment/locale/ru'
 // moment.locale('ru')
-interface ITransactionProps extends ITransaction {
+interface IGroupedTransactionProps extends Omit<ITransaction, '_id account' | 'account' | 'comment' | 'createdAt' | 'updatedAt'> {
     // onClick: (id: string) => void;
 }
 
   
-export const Transaction: React.FC<ITransactionProps> = (props) => {
-    const { _id, type, amount, account, currency, color, comment, category, createdAt, updatedAt, icon } = props
+export const Transaction: React.FC<IGroupedTransactionProps> = (props) => {
+    const { type, amount, currency, color, category, icon } = props
     
     const { fetchTransaction, showSwipe, showFeedback } = useActions()
 
     const [showTransitionInDetail, setShowTransitionInDetail] = useState(false)
     const [categorizedTransactions, setCategorizedTransactions] = useState<ITransaction[] | []>([])
-    const [loadiengCategorizedTransactions, setLoadingCategorizedTransactions] = useState(false)
+    const [loadingCategorizedTransactions, setLoadingCategorizedTransactions] = useState(false)
 
     const handleTransactionClick = async (transactionId: string) => {
         const acc = await fetchTransaction(`/transactions/${transactionId}`)
@@ -58,13 +58,13 @@ export const Transaction: React.FC<ITransactionProps> = (props) => {
             </div>
     
         <div className="transaction-in-detail" style={{ display: showTransitionInDetail ? 'block' : 'none' }}>
-            {loadiengCategorizedTransactions 
+            {loadingCategorizedTransactions 
             ? <div className="transaction-in-detail__loading">Loading...</div> 
             : categorizedTransactions.map(transaction => (
             <div key={transaction._id} className="transaction-in-detail__item" onClick={() => handleTransactionClick(transaction._id)}>
                 <div className="transaction-in-detail__item__left">
                     {/* <span>{moment(transaction.updatedAt.slice(0, 10)).format('DD-MM-YYYY')}</span> */}
-                    <span>{moment(transaction.updatedAt).format('Do MMMM YYYY')}</span>
+                    <span>{moment(transaction.createdAt).format('Do MMMM YYYY')}</span>
                     <span>{transaction.comment}</span>
                 </div>
                 <div className="transaction-in-detail__item__right">

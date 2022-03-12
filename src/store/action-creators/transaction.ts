@@ -23,7 +23,7 @@ export const editTransaction = (payload: ITransactionEdit): TTransactionAction =
 export const createTransaction = (): TTransactionAction => {
     return { type: ETransactionActionTypes.CREATE_TRANSACTION, payload: {
         _id: '',
-        type: ETransactionType.EXPENSE,
+        type: '',
         amount: 0,
         account: '',
         currency: '' as ECurrency,

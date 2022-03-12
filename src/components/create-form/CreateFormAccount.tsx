@@ -7,10 +7,11 @@ import { DeleteButton } from "../buttons/delete/DeleteButton"
 import { SubmitFormButton } from "../buttons/submit/SubmitFormButton"
 import { InputField, TInputFieldType } from "../forms/input-field/InputField"
 import { RadioField } from "../forms/radio-field/RadioField"
+import { onChangeFunctionType } from "./CreateForm"
 
 
 interface CreateFormAccountProps {
-    onChange: (name: string, value: string | number) => void,
+    onChange: onChangeFunctionType,
     onSubmit: (e: React.MouseEvent<HTMLButtonElement>) => void,
     createForm: any
 }

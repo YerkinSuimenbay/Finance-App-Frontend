@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { ECurrency } from '../../../types/account'
+import { onChangeFunctionType } from '../../create-form/CreateForm'
 import { InputField } from '../input-field/InputField'
 import './transaction-field.css'
 
@@ -11,7 +12,7 @@ interface ITransactionFieldProps {
   label: string,
   name: string,
   value: string | number,
-  onChange: (name: string, value: string | number) => void,
+  onChange: onChangeFunctionType,
   currency: ECurrency,
   readonly?: boolean,
 }

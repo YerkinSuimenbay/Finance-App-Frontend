@@ -6,7 +6,7 @@ export enum ETransactionType {
 }
 export interface ITransaction {
     _id: string,
-    type: ETransactionType,
+    type: ETransactionType | '',
     amount: number,
     account: string,
     currency: ECurrency,

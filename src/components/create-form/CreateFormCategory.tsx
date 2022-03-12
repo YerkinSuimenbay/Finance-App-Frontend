@@ -3,10 +3,11 @@ import { SubmitFormButton } from "../buttons/submit/SubmitFormButton"
 import { IconField } from "../forms/icon-field/IconField"
 import { InputField } from "../forms/input-field/InputField"
 import { RadioField } from "../forms/radio-field/RadioField"
+import { onChangeFunctionType } from "./CreateForm"
 
 
 interface CreateFormCategoryProps {
-    onChange: (name: string, value: string | number) => void,
+    onChange: onChangeFunctionType,
     onSubmit: (e: React.MouseEvent<HTMLButtonElement>) => void,
     createForm: any,
 }

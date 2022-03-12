@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SubmitFormButton } from '../../components/buttons/submit/SubmitFormButton'
+import { onChangeFunctionType } from '../../components/create-form/CreateForm'
 import { InputField } from '../../components/forms/input-field/InputField'
 import { useActions } from '../../hooks/useActions'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
@@ -26,7 +27,7 @@ export const Register: React.FC = () => {
     password: ''
   })
 
-  const handleChange = (name: string, value: string | number) => {
+  const handleChange: onChangeFunctionType = (name, value) => {
     setRegisterForm(old => {
       return {
         ...old,

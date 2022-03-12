@@ -7,6 +7,7 @@ import { useActions } from '../../hooks/useActions'
 import { useQuery } from '../../hooks/useQuery'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { ETransactionType } from '../../types/transaction'
+import icons from '../../utils/icons/icons'
 import './transactions.css'
 
 
@@ -57,7 +58,13 @@ export const Transactions: React.FC = () => {
     
   
       <div className="page__list">
-        {transactions.map(transaction => <Transaction key={transaction._id} {...transaction} />)}
+        {transactions.length 
+        ? transactions.map(transaction => <Transaction key={transaction.category} {...transaction} />)
+        : <div className='no-transaction'>
+            <icons.BsSearch className="no-transaction__top" style={{width: 50}} />
+            <span className="no-transaction__bottom">No Transaction Found</span>
+          </div>
+        }
       </div>
 
 

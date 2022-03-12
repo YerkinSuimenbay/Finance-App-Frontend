@@ -2,6 +2,16 @@
 /* lighter shades of primary color */
 /* darkest grey - used for headings */
 /* grey used for paragraphs */
+.no-transaction {
+  color: #ff6000;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
 .transactions__switch {
   display: flex;
   justify-content: center;

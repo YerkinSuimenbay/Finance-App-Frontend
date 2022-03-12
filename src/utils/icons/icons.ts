@@ -9,6 +9,7 @@ import { RiMoneyDollarCircleLine, RiMoneyEuroCircleLine, RiMoneyPoundCircleLine,
 import { BiDrink, BiBeer, BiCut } from 'react-icons/bi'
 import { FaTshirt, FaHands } from 'react-icons/fa'
 import { CgGym } from 'react-icons/cg'
+import { BsSearch } from 'react-icons/bs'
 // const icons = {
 //     AiOutlineBank,
 // }
@@ -61,6 +62,7 @@ const icons: TIcon = {
     FaHands,
     // MdOutlineFamilyRestroom,
     // MdRestaurant,
-    // MdRestaurantMenu
+    // MdRestaurantMenu,
+    BsSearch,
 }
 export default icons
