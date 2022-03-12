@@ -6,6 +6,7 @@ const initialState: ICategoryState = {
         type: ECategoryType.EXPENSE,
         name: '',
         color: '',
+        icon: '',
     },
     loading: false,
     error: null

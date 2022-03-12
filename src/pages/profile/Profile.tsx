@@ -8,16 +8,26 @@ export const Profile: React.FC = () => {
   const store = useTypedSelector(state => state)
   const { showFeedback, logoutUser } = useActions()
 
+
+  const logout = () => {
+    localStorage.removeItem('financeAppToken')
+    localStorage.removeItem('financeAppUserInfo')
+    logoutUser()
+  }
+
+  
   const deleteAccount: React.MouseEventHandler<HTMLButtonElement> = async () => {
     console.log('delete account');
 
     try {
-      const res = await axios.delete('/auth/delete')
+      const res = await axios.delete('/auth')
       const username = res.data.user.name
       const email = res.data.user.email
 
-      localStorage.removeItem('financeAppToken')
-      localStorage.removeItem('financeAppUserInfo')
+      // localStorage.removeItem('financeAppToken')
+      // localStorage.removeItem('financeAppUserInfo')
+      // logoutUser()
+      logout()
 
       showFeedback('success', `Account with username ${username} and email ${email} deleted`)
     } catch (error) {
@@ -29,13 +39,7 @@ export const Profile: React.FC = () => {
       }   
     }
   }
-  const logout: React.MouseEventHandler<HTMLButtonElement> = () => {
-    console.log('logout');
-    
-    localStorage.removeItem('financeAppToken')
-    localStorage.removeItem('financeAppUserInfo')
-    logoutUser()
-  }
+  
 
   let name: string = 'No name', email: string = 'No email'
   if (localStorage.getItem('financeAppUserInfo')) {

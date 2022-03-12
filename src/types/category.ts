@@ -8,6 +8,7 @@ export interface ICategory {
     name: string,
     type: ECategoryType,
     color: string,
+    icon: string
 }
 export interface ICategoryNew extends Omit<ICategory, '_id'>  {
     _id: ''

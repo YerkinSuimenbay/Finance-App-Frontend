@@ -1,5 +1,6 @@
 import { ECategoryType } from "../../types/category"
 import { SubmitFormButton } from "../buttons/submit/SubmitFormButton"
+import { IconField } from "../forms/icon-field/IconField"
 import { InputField } from "../forms/input-field/InputField"
 import { RadioField } from "../forms/radio-field/RadioField"
 
@@ -7,14 +8,16 @@ import { RadioField } from "../forms/radio-field/RadioField"
 interface CreateFormCategoryProps {
     onChange: (name: string, value: string | number) => void,
     onSubmit: (e: React.MouseEvent<HTMLButtonElement>) => void,
-    createForm: any
+    createForm: any,
 }
 
 export const CreateFormCategory: React.FC<CreateFormCategoryProps> = (props) => {
     const { createForm: category, onChange, onSubmit } = props
+
     return (
         <form className="form swipe__left__body__form">
             <InputField type='text' label='Category Name:' name="name" value={category.name} onChange={onChange}/>
+            <IconField color={category.color} label='Category Icon:' name="icon" value={category.icon} onChange={onChange}/>
             <InputField type='color' label='Category Color:' name="color" value={category.color} onChange={onChange}/>
             <RadioField label="Category Type:" name="type" options={[
                 {

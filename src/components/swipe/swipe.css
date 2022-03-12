@@ -10,6 +10,7 @@
   position: fixed;
   background: #fff;
   padding: 10px;
+  cursor: default;
 }
 .swipe__left {
   right: 0;

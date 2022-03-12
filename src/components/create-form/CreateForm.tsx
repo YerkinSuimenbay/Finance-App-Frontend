@@ -19,6 +19,7 @@ interface CreateFormProps {
 export const CreateForm: React.FC<CreateFormProps> = (props) => {
     const type = useQuery().get('type')
     const grouped = useQuery().get('grouped')
+
     const { currentPage, mode } = props
     const { hideSwipe, showFeedback, 
         editAccount, fetchAccounts, 
@@ -68,8 +69,8 @@ export const CreateForm: React.FC<CreateFormProps> = (props) => {
 
     }, [currentPage, mode,
         account, editAccount, fetchAccounts, 
-        category, editCategory, fetchCategories, 
-        transaction, editTransaction, fetchTransactions, type, grouped,
+        category, editCategory, fetchCategories,
+        transaction, editTransaction, fetchTransactions, type, grouped, 
     ])
 
     const handleChange = (name: string, value: any): void => {

@@ -116,6 +116,7 @@ button {
 
 .list-item {
     display: flex;
+    align-items: center;
     column-gap: 1rem;
     background-color: #fff;
     padding: 5px;
@@ -131,12 +132,17 @@ button {
     &__left {
         padding: 3px;
 
-        background: red;
+        background: rgb(175, 173, 173);
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 50%;
         align-self: center;
+
+        svg {
+            fill: #fff;
+            width: 20px;
+        }
     }
 
     &__middle {

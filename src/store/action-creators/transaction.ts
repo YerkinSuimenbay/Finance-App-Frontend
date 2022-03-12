@@ -33,5 +33,6 @@ export const createTransaction = (): TTransactionAction => {
         // createdBy: string,
         createdAt: new Date().toISOString().split('T')[0],
         updatedAt: new Date().toISOString().split('T')[0],
+        icon: ''
     } }
 }

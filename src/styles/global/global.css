@@ -102,6 +102,7 @@ button {
 
 .list-item {
   display: flex;
+  align-items: center;
   -moz-column-gap: 1rem;
        column-gap: 1rem;
   background-color: #fff;
@@ -114,12 +115,16 @@ button {
 }
 .list-item__left {
   padding: 3px;
-  background: red;
+  background: #afadad;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   align-self: center;
+}
+.list-item__left svg {
+  fill: #fff;
+  width: 20px;
 }
 .list-item__middle {
   flex: 1;

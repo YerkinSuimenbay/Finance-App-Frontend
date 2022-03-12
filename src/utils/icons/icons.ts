@@ -1,15 +1,66 @@
+import { IconType } from 'react-icons/lib'
 import './icons.css'
-import { AiOutlineBank } from 'react-icons/ai'
-import { MdOutlineAddBox } from 'react-icons/md'
-import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
-
+import { AiOutlineBank, AiOutlineHome, AiOutlineCar, AiFillCar, AiOutlineShoppingCart, AiOutlineWifi } from 'react-icons/ai'
+import { MdOutlineAddBox, MdAttachMoney, MdMoney, MdFastfood, MdOutlineFastfood, MdOutlineHealthAndSafety, MdOutlineSchool, MdSportsBar, MdOutlineFamilyRestroom, MdRestaurant, MdRestaurantMenu } from 'react-icons/md'
+import { IoIosArrowDown, IoIosArrowUp, IoIosBeer, IoMdBus, IoMdShirt, IoMdSchool } from 'react-icons/io'
+import { GiMoneyStack, GiTakeMyMoney, GiPayMoney, GiReceiveMoney, GiMeal, GiHotMeal, GiWineBottle, GiHealthNormal, GiMedicines, GiSlicedBread, GiKickScooter } from 'react-icons/gi'
+import { GrMoney } from 'react-icons/gr'
+import { RiMoneyDollarCircleLine, RiMoneyEuroCircleLine, RiMoneyPoundCircleLine, RiBusFill } from 'react-icons/ri'
+import { BiDrink, BiBeer, BiCut } from 'react-icons/bi'
+import { FaTshirt, FaHands } from 'react-icons/fa'
+import { CgGym } from 'react-icons/cg'
 // const icons = {
 //     AiOutlineBank,
 // }
 
-export default {
+
+export type TIcon = Record<string, IconType>
+
+const icons: TIcon = {
     AiOutlineBank,
     MdOutlineAddBox,
     IoIosArrowDown,
     IoIosArrowUp,
+    AiOutlineHome,
+    GiMoneyStack,
+    GiTakeMyMoney,
+    GiPayMoney,
+    GiReceiveMoney,
+    // GrMoney,
+    MdAttachMoney,
+    MdMoney,
+    RiMoneyDollarCircleLine,
+    RiMoneyEuroCircleLine,
+    RiMoneyPoundCircleLine,
+    GiMeal,
+    GiHotMeal,
+    MdFastfood,
+    MdOutlineFastfood,
+    AiOutlineCar,
+    AiFillCar,
+    AiOutlineShoppingCart,
+    BiDrink,
+    IoIosBeer,
+    // BiBeer,
+    GiWineBottle,
+    GiHealthNormal,
+    MdOutlineHealthAndSafety,
+    GiMedicines,
+    // IoMdBus,
+    RiBusFill,
+    IoMdShirt,
+    FaTshirt,
+    AiOutlineWifi,
+    BiCut,
+    GiSlicedBread,
+    MdOutlineSchool,
+    IoMdSchool,
+    GiKickScooter,
+    MdSportsBar,
+    // CgGym,
+    FaHands,
+    // MdOutlineFamilyRestroom,
+    // MdRestaurant,
+    // MdRestaurantMenu
 }
+export default icons

@@ -14,6 +14,7 @@ const initialState: ITransactionState = {
         // createdBy: string,
         createdAt: new Date().toISOString().split('T')[0],
         updatedAt: new Date().toISOString().split('T')[0],
+        icon: ''
     },
     loading: false,
     error: null

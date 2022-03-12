@@ -55,7 +55,7 @@ export const CreateFormTransaction: React.FC<CreateFormTransactionProps> = (prop
             <InputField type='date' label='Transaction created at:' name="createdAt" value={createdAt.slice(0, 10)} onChange={onChange}/>
 
             <InputField type='text' label='Transaction Comment:' name="comment" value={comment} onChange={onChange}/>
-            <InputField type='color' label='Transaction Color:' name="color" value={color} onChange={onChange}/>
+            {/* <InputField type='color' label='Transaction Color:' name="color" value={color} onChange={onChange}/> */}
             <SubmitFormButton onClick={onSubmit}/>
         </form>
     )

@@ -24,6 +24,7 @@ export const createCategory = (): TCategoryAction => {
         _id: '',
         type: ECategoryType.EXPENSE,
         name: '',
-        color: '#ffffff',
+        color: '',
+        icon: ''
     } }
 }

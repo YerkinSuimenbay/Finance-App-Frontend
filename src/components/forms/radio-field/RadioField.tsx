@@ -43,7 +43,7 @@ export const RadioField: React.FC<IRadioFieldProps> = (props) => {
 
     return (
         <div className='radio-field'>
-            <p className='radio-field__lavel'>{label}</p>
+            <p className='radio-field__label'>{label}</p>
             <div className="radio-field__options">
             {options.map(option => (
                 <div className='radio-field__option' key={option.value}>

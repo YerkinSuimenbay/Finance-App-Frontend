@@ -15,7 +15,8 @@ export interface ITransaction {
     category: string,
     // createdBy: string,
     createdAt: string,
-    updatedAt: string
+    updatedAt: string, 
+    icon: string
 }
 export interface ITransactionNew extends Omit<ITransaction, '_id'>  {
     _id: ''
