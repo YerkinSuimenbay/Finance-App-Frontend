@@ -25,15 +25,25 @@
   background-color: #b4bbc2;
 }
 .period-field__date-fields {
-  position: absolute;
-  top: 35px;
-  z-index: 10;
   background: snow;
   padding: 10px;
-  border-radius: 5px;
-  border: 1px solid;
+  border-radius: 0.25rem;
   display: flex;
   gap: 1rem;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  margin: 6px auto 0;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.period-field__date-fields button {
+  padding: 0px 5px;
+  border-radius: 0.25rem;
+  background-color: #007bff;
+  color: #fff;
+}
+.period-field__date-fields button:hover {
+  background-color: #0069d9;
 }
 
 .icons {

@@ -11,7 +11,16 @@ export const fetchTransactions = (url: string) => {
             
             dispatch({ type: ETransactionsActionTypes.FETCH_TRANSACTIONS_SUCCESS, payload: transactions })
         } catch (error) {
-            dispatch({ type: ETransactionsActionTypes.FETCH_TRANSACTIONS_ERROR, payload: 'Error while fetching transactions' })
+            let errorMessage = 'Error while fetching transactions'
+            console.log(error);
+            if (axios.isAxiosError(error)) {
+                console.log(error.response?.data);
+                errorMessage += '. ' + error.response?.data.msg
+            } else if (error instanceof Error) {
+                errorMessage += error.message
+            }
+            
+            dispatch({ type: ETransactionsActionTypes.FETCH_TRANSACTIONS_ERROR, payload: errorMessage })
         }
     }
 }

@@ -4,7 +4,6 @@
 /* grey used for paragraphs */
 .loader-container {
   z-index: 100;
-  position: fixed;
   top: 60px;
   left: 0;
   bottom: 0;

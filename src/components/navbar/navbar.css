@@ -29,6 +29,11 @@
 }
 .navbar__right {
   flex: 1;
+  display: flex;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+  justify-content: flex-end;
+  align-items: center;
 }
 .navbar__middle {
   flex: 5;

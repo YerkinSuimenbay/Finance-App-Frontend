@@ -70,6 +70,16 @@ button {
     &__list {
         display: grid;
         row-gap: 1px;
+
+        &__loading {
+            position: relative;
+            min-height: 150px;
+        }
+
+        .loader-container {
+            top: 50%;
+            transform: translateY(-50%);
+        }
     }
     
     &__create-btn-container {
@@ -181,6 +191,17 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+input:disabled{
+    background-color: #aaa;
+    border: 1px solid #888;
+    pointer-events: none;
+}
+
+
+// input:read-only:hover {
+//     cursor: not-allowed;
+// }
 // Hide Input Number Arrows END
 
 

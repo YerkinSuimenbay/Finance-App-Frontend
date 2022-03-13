@@ -60,6 +60,14 @@ button {
   display: grid;
   row-gap: 1px;
 }
+.page__list__loading {
+  position: relative;
+  min-height: 150px;
+}
+.page__list .loader-container {
+  top: 50%;
+  transform: translateY(-50%);
+}
 .page__create-btn-container {
   position: fixed;
   width: 95%;
@@ -153,6 +161,12 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+input:disabled {
+  background-color: #aaa;
+  border: 1px solid #888;
+  pointer-events: none;
 }
 
 /* width */

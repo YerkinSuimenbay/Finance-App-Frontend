@@ -22,7 +22,8 @@ export const Transaction: React.FC<IGroupedTransactionProps> = (props) => {
 
     const query = useQuery()
     const period = query.get('period') as TPeriod
-
+    const from = query.get('from')
+    const to = query.get('to')
 
 
     const [showTransitionInDetail, setShowTransitionInDetail] = useState(false)
@@ -41,7 +42,10 @@ export const Transaction: React.FC<IGroupedTransactionProps> = (props) => {
             setLoadingCategorizedTransactions(true)
             setShowTransitionInDetail(oldValue => !oldValue)
 
-            const res = await axios.get(`/transactions?type=${type}&category=${category}&period=${period}`)
+            let URL = `/transactions?type=${type}&category=${category}&period=${period}`
+            if (from && to) URL += `&from=${from}&to=${to}` 
+            
+            const res = await axios.get(URL)
 
             setCategorizedTransactions(res.data.transactions)
         } catch (error) {

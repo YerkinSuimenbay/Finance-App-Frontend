@@ -35,12 +35,20 @@ export const Transactions: React.FC = () => {
   const transactionType = query.get('type')
   const grouped = query.get('grouped')
   const period = query.get('period') as TPeriod
+  const from = query.get('from')
+  const to = query.get('to')
   
   
   useEffect(() => {
-    const URL = `/transactions?type=${transactionType}&grouped=${grouped}&period=${period}`
+    console.log('useEffect CALL');
+    
+    let URL = `/transactions?type=${transactionType}&grouped=${grouped}&period=${period}`
+    if (from && to) {
+      URL += `&from=${from}&to=${to}` 
+    }
     fetchTransactions(URL)
-  }, [transactionType, grouped, period])
+  // }, [transactionType, grouped, period, fromDate, toDate])
+  }, [transactionType, grouped])
 
 
   const onClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void> => {
@@ -49,23 +57,25 @@ export const Transactions: React.FC = () => {
   }
 
   const switchTransactions = (newTransactionType: ETransactionType) => {
-    navigate(`/transactions?type=${newTransactionType}&grouped=${grouped}&period=${period}`)
+    let URL = `/transactions?type=${newTransactionType}&grouped=${grouped}&period=${period}`
+    // if (from && to) {
+    //   URL += `&from=${from}&to=${to}` 
+    // }
+
+    navigate(URL)
   }
 
-  const handlePeriodChange = (newPeriod: TPeriod, fromDate?: string, toDate?: string) => {
-    console.log(fromDate, toDate);
-    if (newPeriod === 'period') {
-      navigate(`/transactions?type=${transactionType}&grouped=${grouped}&period=${newPeriod}&from=${fromDate}&to=${toDate}`)
-      return
+  const handlePeriodChange = (newPeriod: TPeriod, from?: string, to?: string) => {
+    console.log({from, to});
+    let URL = `/transactions?type=${transactionType}&grouped=${grouped}&period=${newPeriod}`
+    if (from && to) {
+      URL += `&from=${from}&to=${to}` 
     }
-    
-    navigate(`/transactions?type=${transactionType}&grouped=${grouped}&period=${newPeriod}`)
+    fetchTransactions(URL)
+
+    navigate(URL)
   }
 
-
-  if (loading) {
-    return <LoaderComponent text='Loading transactions...'/>
-  }
   
   if (error) {
     return <h2 className='error-msg'>{error}</h2>
@@ -81,18 +91,21 @@ export const Transactions: React.FC = () => {
       </div>
     
       <div className='transactions__periods'>
-        <PeriodField value={period} onChange={handlePeriodChange}/>
+        <PeriodField value={period} onChange={handlePeriodChange} from={from} to={to}/>
       </div>
-  
-      <div className="page__list">
-        {transactions.length 
-        ? transactions.map(transaction => <Transaction key={transaction.category} {...transaction} />)
-        : <div className='no-transaction'>
-            <icons.BsSearch className="no-transaction__top" style={{width: 50}} />
-            <span className="no-transaction__bottom">No Transaction Found</span>
-          </div>
-        }
-      </div>
+
+     <div className={loading ? "page__list page__list__loading" : "page__list"}>
+      {loading 
+        ? <LoaderComponent text='Loading transactions...'/>
+        : transactions.length 
+          ? transactions.map(transaction => <Transaction key={transaction.category} {...transaction} />)
+          : <div className='no-transaction'>
+              <icons.BsSearch className="no-transaction__top" style={{width: 50}} />
+              <span className="no-transaction__bottom">No Transaction Found</span>
+            </div>
+      }
+    </div>
+    
 
 
 
