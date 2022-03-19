@@ -11,7 +11,8 @@ export const formatValue = (value: any, type: TFormatValue) => {
             arr.push(reversed.substring(i, i+3).split('').reverse().join(''))
         }
         
-        const valueToReturn = decimal ? arr.reverse().join(' ') + '<span class="bold-comma">,</span>' + decimal : arr.reverse().join(' ') 
+        // const valueToReturn = decimal ? arr.reverse().join(' ') + '<span class="bold-comma">,</span>' + decimal : arr.reverse().join(' ') 
+        const valueToReturn = decimal ? arr.reverse().join(' ') + ',' + decimal : arr.reverse().join(' ') 
         return valueToReturn 
     } 
     // if (type === 'boolean') return !!value ? 'Да' : 'Нет'

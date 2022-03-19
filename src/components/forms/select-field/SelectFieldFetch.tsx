@@ -78,8 +78,8 @@ export const SelectFieldFetch: React.FC<ISelectFieldFetchProps> = (props) => {
             <div onClick={toggleOptions}>
                 <InputField type='text' label={label} name={name} value={value} onChange={() => {}} readonly/>
                 {show 
-                ? <icons.IoIosArrowUp className='select-field__arrow'/> 
-                : <icons.IoIosArrowDown className='select-field__arrow'/>
+                ? <icons.GENERAL_ICONS.IoIosArrowUp className='select-field__arrow'/> 
+                : <icons.GENERAL_ICONS.IoIosArrowDown className='select-field__arrow'/>
                 }
             </div>
             

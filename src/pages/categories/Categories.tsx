@@ -34,7 +34,7 @@ export const Categories: React.FC = () => {
 
   return (
     <div className='page accounts-page'>
-      <header className='page__title'>Categories</header>
+      {/* <header className='page__title'>Categories</header> */}
   
       <div className="page__list">
         {categories.map(category => <Category key={category._id} {...category} />)}

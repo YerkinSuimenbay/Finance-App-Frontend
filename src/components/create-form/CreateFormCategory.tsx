@@ -18,7 +18,7 @@ export const CreateFormCategory: React.FC<CreateFormCategoryProps> = (props) => 
     return (
         <form className="form swipe__left__body__form">
             <InputField type='text' label='Category Name:' name="name" value={category.name} onChange={onChange}/>
-            <IconField color={category.color} label='Category Icon:' name="icon" value={category.icon} onChange={onChange}/>
+            <IconField type="CATEGORY_ICONS" color={category.color} label='Category Icon:' name="icon" value={category.icon} onChange={onChange}/>
             <InputField type='color' label='Category Color:' name="color" value={category.color} onChange={onChange}/>
             <RadioField label="Category Type:" name="type" options={[
                 {

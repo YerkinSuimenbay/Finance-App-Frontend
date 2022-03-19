@@ -1,8 +1,12 @@
 import { IAccount } from "./account";
 
+export interface IAccountsResponseData {
+    accounts: IAccount[],
+    total: number
+}
 
 export interface IAccountsState {
-    accounts: IAccount[],
+    data: IAccountsResponseData,
     loading: boolean,
     error: null | string
 }
@@ -19,7 +23,7 @@ interface IFetchAccountsAction {
 
 interface IFetchAccountsActionSuccess {
     type: EAccountsActionTypes.FETCH_ACCOUNTS_SUCCESS,
-    payload: IAccount[]
+    payload: IAccountsResponseData,
 }
 
 interface IFetchAccountsActionError {

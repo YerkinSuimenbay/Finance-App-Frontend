@@ -7,13 +7,28 @@ export const fetchAccounts = (url: string) => {
         try {
             dispatch({ type: EAccountsActionTypes.FETCH_ACCOUNTS })
             const res = await axios.get(url)
-            const { accounts } = res.data
+            const { accounts, total } = res.data
             
-            dispatch({ type: EAccountsActionTypes.FETCH_ACCOUNTS_SUCCESS, payload: accounts })
+            dispatch({ 
+                type: EAccountsActionTypes.FETCH_ACCOUNTS_SUCCESS, 
+                payload: {
+                    accounts, 
+                    total, 
+                } 
+            })
 
             return accounts
         } catch (error) {
-            dispatch({ type: EAccountsActionTypes.FETCH_ACCOUNTS_ERROR, payload: 'Error while fetching accounts' })
+            let errorMessage = 'Error while fetching accounts'
+            console.log(error);
+            if (axios.isAxiosError(error)) {
+                console.log(error.response?.data);
+                errorMessage += '. ' + error.response?.data.msg
+            } else if (error instanceof Error) {
+                errorMessage += error.message
+            }
+            
+            dispatch({ type: EAccountsActionTypes.FETCH_ACCOUNTS_ERROR, payload: errorMessage })
         }
     }
 }

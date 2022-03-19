@@ -16,7 +16,8 @@ export interface ITransaction {
     // createdBy: string,
     createdAt: string,
     updatedAt: string, 
-    icon: string
+    icon: string,
+    percentage: number
 }
 export interface ITransactionNew extends Omit<ITransaction, '_id'>  {
     _id: ''

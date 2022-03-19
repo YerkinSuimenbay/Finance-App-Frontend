@@ -26,7 +26,7 @@ export const Account: React.FC<IAccountProps> = (props) => {
     return (
         <div className='account list-item' onClick={() => handleAccountClick(_id)}>
             <div className="account__left list-item__left" style={{ background: color }}>
-                {<icons.AiOutlineBank className="bank"/>}
+                {<icons.ACCOUNT_ICONS.AiOutlineBank className="bank"/>}
             </div>
             <div className="account__middle list-item__middle">{name}</div>
             <div className="account__right list-item__right">{formatValue(totalCash, 'number')} {currency}</div>

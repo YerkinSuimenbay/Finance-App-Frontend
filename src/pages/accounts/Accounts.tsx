@@ -4,13 +4,14 @@ import { CreateButton } from '../../components/buttons/create/CreateButton'
 import { LoaderComponent } from '../../components/loader/Loader'
 import { useActions } from '../../hooks/useActions'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
+import { formatValue } from '../../utils/js/formatValue'
 
 import './accounts.css'
 
 const URL = '/accounts'
 
 export const Accounts: React.FC = () => {
-  const { accounts, loading, error } = useTypedSelector(state => state.accounts)
+  const { data: { accounts, total }, loading, error } = useTypedSelector(state => state.accounts)
   const { account, swipe } = useTypedSelector(state => state)
   const { fetchAccounts, showSwipe, createAccount } = useActions()
 
@@ -41,8 +42,13 @@ export const Accounts: React.FC = () => {
   // }
   return (
     <div className='page accounts-page'>
-      <header className='page__title'>Accounts</header>
+      {/* <header className='page__title'>Accounts</header> */}
+      <div className='accounts__total'>
+        <span className='grey'>Total: </span>
+        <span className='accounts__total__amount'>{formatValue(total, 'number')} KZT</span>
+      </div>
     
+      
       <div className="page__list">
         {accounts.map(account => <Account key={account._id} {...account} />)}
       </div>

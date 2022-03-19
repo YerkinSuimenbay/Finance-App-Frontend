@@ -16,7 +16,7 @@ interface IGroupedTransactionProps extends Omit<ITransaction, '_id account' | 'a
 
   
 export const Transaction: React.FC<IGroupedTransactionProps> = (props) => {
-    const { type, amount, currency, color, category, icon } = props
+    const { type, amount, currency, color, category, icon, percentage } = props
     
     const { fetchTransaction, showSwipe, showFeedback } = useActions()
 
@@ -57,7 +57,7 @@ export const Transaction: React.FC<IGroupedTransactionProps> = (props) => {
         }
     }
 
-    let Icon = icon ? icons[icon]  : icons.AiOutlineBank
+    let Icon = icon ? icons.CATEGORY_ICONS[icon]  : icons.CATEGORY_ICONS.AiOutlineBank
     return (
         <div className={showTransitionInDetail ? 'transaction-container show-in-detail' : 'transaction-container'} >
             <div className='transaction list-item' onClick={() => handleGroupedTransactionClick()}>
@@ -65,7 +65,10 @@ export const Transaction: React.FC<IGroupedTransactionProps> = (props) => {
                     <Icon />
                 </div>
                 <div className="transaction__middle list-item__middle">{category}</div>
-                <div className="transaction__right list-item__right">{formatValue(amount, 'number')} {currency}</div>
+                <div className="transaction__right list-item__right">
+                    <span className="transaction__right__percentage">{percentage}% </span>
+                    <span className="transaction__right__amount">{formatValue(amount, 'number')} {currency}</span>
+                </div>
             </div>
     
         <div className="transaction-in-detail" style={{ display: showTransitionInDetail ? 'block' : 'none' }}>

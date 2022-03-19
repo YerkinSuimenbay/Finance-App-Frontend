@@ -1,7 +1,5 @@
-import moment from 'moment'
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { useActions } from '../../../hooks/useActions'
-import icons from '../../../utils/icons/icons'
 import './period-field.css'
 
 export type TPeriod = 'day' | 'week' | 'month' | 'year' | 'period'
@@ -62,7 +60,7 @@ export const PeriodField: React.FC<PeriodFieldProps> = (props) => {
       <div className="period-field__date-fields">
         <input type="date" name="from" value={fromDate} onChange={e => {
             setFromDate(e.target.value); 
-            if (moment(e.target.value).isAfter(moment(toDate))) setToDate('')
+            // if (moment(e.target.value).isAfter(moment(toDate))) setToDate('')
           }}/>
         {fromDate 
           ? <input type="date" name="to" value={toDate} onChange={e => setToDate(e.target.value)} min={fromDate} />

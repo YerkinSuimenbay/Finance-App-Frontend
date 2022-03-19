@@ -38,7 +38,6 @@ export const Transactions: React.FC = () => {
   const from = query.get('from')
   const to = query.get('to')
   
-  
   useEffect(() => {
     console.log('useEffect CALL');
     
@@ -83,7 +82,7 @@ export const Transactions: React.FC = () => {
 
   return (
     <div className='page transactions-page'>
-      <header className='page__title'>Transactions</header>
+      {/* <header className='page__title'>Transactions</header> */}
 
       <div className='transactions__switch'>
         <button onClick={() => switchTransactions(ETransactionType.EXPENSE)} className={transactionType === ETransactionType.EXPENSE ? 'active' : ''}>{ETransactionType.EXPENSE.toUpperCase()}</button>
@@ -100,7 +99,7 @@ export const Transactions: React.FC = () => {
         : transactions.length 
           ? transactions.map(transaction => <Transaction key={transaction.category} {...transaction} />)
           : <div className='no-transaction'>
-              <icons.BsSearch className="no-transaction__top" style={{width: 50}} />
+              <icons.GENERAL_ICONS.BsSearch className="no-transaction__top" style={{ width: 50 }} />
               <span className="no-transaction__bottom">No Transaction Found</span>
             </div>
       }

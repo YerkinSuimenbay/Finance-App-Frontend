@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { useActions } from '../../hooks/useActions'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
+import icons from '../../utils/icons/icons'
 import { DeleteButton } from '../buttons/delete/DeleteButton'
 import { CreateForm } from '../create-form/CreateForm'
 // import { CreateForm } from '../create-form/CreateForm'
@@ -66,10 +67,18 @@ export const SwipeLeft = () => {
         // if (currentPage === 'categories') return 'Category'
     }
 
+    const hideSwipeFunction: React.MouseEventHandler<HTMLDivElement | HTMLButtonElement> = () => {
+        hideSwipe(type, currentPage, mode); 
+        hideFeedback()
+    }
+
 
     return (
-        <div className={getSwipeContainerClassName()} onClick={() => {hideSwipe(type, currentPage, mode); hideFeedback()}} onMouseOver={handleSwipeContainerMouseOver}>
+        <div className={getSwipeContainerClassName()} onDoubleClick={hideSwipeFunction} onMouseOver={handleSwipeContainerMouseOver}>
             <div className={getSwipeClassName()} ref={swipeRef} onClick={e => e.stopPropagation()} onMouseOver={handleSwipeMouseOver}>
+                <button className='swipe__left__close-btn' onClick={hideSwipeFunction}>
+                   <icons.GENERAL_ICONS.IoIosArrowForward />
+                </button>
                 <h2 className="swipe__left__title">{getSwipeLeftTitle()}</h2>
                 <div className='swipe__left__body'>
                     <CreateForm currentPage={currentPage} mode={mode}/>

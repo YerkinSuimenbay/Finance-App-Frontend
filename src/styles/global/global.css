@@ -49,7 +49,7 @@ button {
 
 .page {
   width: 95%;
-  margin: 0 auto;
+  margin: 1rem auto;
   position: relative;
 }
 .page__title {
@@ -149,6 +149,10 @@ button {
   font-weight: 500;
   font-family: monospace;
   margin-top: 1rem;
+}
+
+.grey {
+  color: #787c7e;
 }
 
 /* Chrome, Safari, Edge, Opera */

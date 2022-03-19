@@ -2,7 +2,7 @@ import { IconType } from 'react-icons/lib'
 import './icons.css'
 import { AiOutlineBank, AiOutlineHome, AiOutlineCar, AiFillCar, AiOutlineShoppingCart, AiOutlineWifi } from 'react-icons/ai'
 import { MdOutlineAddBox, MdAttachMoney, MdMoney, MdFastfood, MdOutlineFastfood, MdOutlineHealthAndSafety, MdOutlineSchool, MdSportsBar, MdOutlineFamilyRestroom, MdRestaurant, MdRestaurantMenu } from 'react-icons/md'
-import { IoIosArrowDown, IoIosArrowUp, IoIosBeer, IoMdBus, IoMdShirt, IoMdSchool } from 'react-icons/io'
+import { IoIosArrowDown, IoIosArrowUp, IoIosArrowForward, IoIosBeer, IoMdBus, IoMdShirt, IoMdSchool } from 'react-icons/io'
 import { GiMoneyStack, GiTakeMyMoney, GiPayMoney, GiReceiveMoney, GiMeal, GiHotMeal, GiWineBottle, GiHealthNormal, GiMedicines, GiSlicedBread, GiKickScooter } from 'react-icons/gi'
 import { GrMoney } from 'react-icons/gr'
 import { RiMoneyDollarCircleLine, RiMoneyEuroCircleLine, RiMoneyPoundCircleLine, RiBusFill } from 'react-icons/ri'
@@ -17,11 +17,9 @@ import { BsSearch } from 'react-icons/bs'
 
 export type TIcon = Record<string, IconType>
 
-const icons: TIcon = {
+const CATEGORY_ICONS: TIcon = {
     AiOutlineBank,
     MdOutlineAddBox,
-    IoIosArrowDown,
-    IoIosArrowUp,
     AiOutlineHome,
     GiMoneyStack,
     GiTakeMyMoney,
@@ -65,4 +63,21 @@ const icons: TIcon = {
     // MdRestaurantMenu,
     BsSearch,
 }
-export default icons
+
+const GENERAL_ICONS: TIcon = {
+    IoIosArrowDown,
+    IoIosArrowUp,
+    IoIosArrowForward,
+    MdOutlineAddBox,
+    BsSearch,
+}
+
+const ACCOUNT_ICONS: TIcon = {
+    AiOutlineBank
+}
+
+export default {
+    GENERAL_ICONS,
+    ACCOUNT_ICONS,
+    CATEGORY_ICONS,
+}

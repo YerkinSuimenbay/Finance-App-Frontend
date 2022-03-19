@@ -58,9 +58,10 @@ button {
     width: $width;
     // margin: $nav-height auto 0;
     // height: calc(100vh - $nav-height);
-    margin: 0 auto;
+    margin: 1rem auto;
     // height: 100vh;
     position: relative;
+
 
     &__title {
         font-size: 2rem;
@@ -168,7 +169,7 @@ button {
     }
 
     &__right {
-
+        // width: 200px;
     }
 }
 
@@ -178,6 +179,10 @@ button {
     font-weight: 500;
     font-family: monospace;
     margin-top: 1rem;
+}
+
+.grey {
+    color: $loading-color;
 }
 
 // Hide Input Number Arrows START

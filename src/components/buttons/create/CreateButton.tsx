@@ -11,7 +11,7 @@ export const CreateButton: React.FC<ICreateButtonProps> = (props) => {
   return (
     <div className="page__create-btn-container">
     <button className='page__create-btn' onClick={onClick}>
-      {<icons.MdOutlineAddBox/>}
+      {<icons.GENERAL_ICONS.MdOutlineAddBox/>}
       <span>Create new {label}</span> 
     </button>
     </div>

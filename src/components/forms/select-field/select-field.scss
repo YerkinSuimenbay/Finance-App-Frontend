@@ -47,7 +47,7 @@
         }
 
         &.loading-option {
-            color: #787c7e;
+            color: $loading-color;
             cursor: progress;
         }
         &.no-option {

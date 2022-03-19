@@ -13,7 +13,16 @@ export const fetchCategories = (url: string) => {
 
             return categories
         } catch (error) {
-            dispatch({ type: ECategoriesActionTypes.FETCH_CATEGORIES_ERROR, payload: 'Error while fetching categories' })
+            let errorMessage = 'Error while fetching categories'
+            console.log(error);
+            if (axios.isAxiosError(error)) {
+                console.log(error.response?.data);
+                errorMessage += '. ' + error.response?.data.msg
+            } else if (error instanceof Error) {
+                errorMessage += error.message
+            }
+
+            dispatch({ type: ECategoriesActionTypes.FETCH_CATEGORIES_ERROR, payload: errorMessage })
         }
     }
 }

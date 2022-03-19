@@ -2,5 +2,12 @@
 @import '../../styles/constants';
 
 .accounts {
-    
+    &__total {
+        text-align: center;
+        font-size: 1.3rem;
+
+        &__amount {
+            font-weight: 900;
+        }
+    }
 }

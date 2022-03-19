@@ -5,6 +5,7 @@ import { useQuery } from "../../hooks/useQuery"
 import { useTypedSelector } from "../../hooks/useTypedSelector"
 import { TMode, TPages } from "../../types/swipe"
 import { DeleteButton } from "../buttons/delete/DeleteButton"
+import { TPeriod } from "../forms/period-field/PeriodField"
 import { CreateFormAccount } from "./CreateFormAccount"
 import { CreateFormCategory } from "./CreateFormCategory"
 import { CreateFormTransaction } from "./CreateFormTransaction"
@@ -19,8 +20,12 @@ interface CreateFormProps {
 }
 
 export const CreateForm: React.FC<CreateFormProps> = (props) => {
-    const type = useQuery().get('type')
-    const grouped = useQuery().get('grouped')
+    const query = useQuery()
+    const transactionType = query.get('type')
+    const transactionGrouped = query.get('grouped')
+    const transactionPeriod = query.get('period') as TPeriod
+    const transactionFrom = query.get('from')
+    const transactionTo = query.get('to')
 
     const { currentPage, mode } = props
     const { hideSwipe, showFeedback, 
@@ -58,12 +63,15 @@ export const CreateForm: React.FC<CreateFormProps> = (props) => {
         if (currentPage === 'transactions') {
             let createForm = transaction
             let { _id, ...reqBody } = createForm
+
+            let URL = `/transactions?type=${transactionType}&grouped=${transactionGrouped}&period=${transactionPeriod}`
+            if (transactionFrom && transactionTo) URL += `&from=${transactionFrom}&to=${transactionTo}`
         
             return {
                 editItem: editTransaction,
                 deleteItem: async () => await axios.delete(`/${currentPage}/${_id}`),
                 updateOrCreateItem: async () => mode === 'edit' ? await axios.patch(`${currentPage}/${_id}`, transaction) : await axios.post(`${currentPage}`, reqBody ),
-                fetchItems: () => fetchTransactions(`/transactions?type=${type}&grouped=${grouped}`),
+                fetchItems: () => fetchTransactions(URL),
                 renderForm: (handleChange: onChangeFunctionType, handleSubmit: React.MouseEventHandler<HTMLButtonElement>) => <CreateFormTransaction createForm={createForm} onChange={handleChange} onSubmit={handleSubmit}/>
             }
         }
@@ -72,7 +80,7 @@ export const CreateForm: React.FC<CreateFormProps> = (props) => {
     }, [currentPage, mode,
         account, editAccount, fetchAccounts, 
         category, editCategory, fetchCategories,
-        transaction, editTransaction, fetchTransactions, type, grouped, 
+        transaction, editTransaction, fetchTransactions, transactionType, transactionGrouped, transactionPeriod, transactionFrom, transactionTo,
     ])
 
     const handleChange = (name: string, value: any): void => {

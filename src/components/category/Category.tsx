@@ -23,7 +23,7 @@ export const Category: React.FC<ICategoryProps> = (props) => {
         showSwipe('left', 'categories', 'edit')
     }
 
-    let Icon = icon ? icons[icon]  : icons.AiOutlineBank
+    let Icon = icon ? icons.CATEGORY_ICONS[icon]  : icons.CATEGORY_ICONS.AiOutlineBank
     return (
         <div className='list-item' onClick={() => handleCategoryClick(_id)}>
             <div className="list-item__left" style={{ background: color }}>

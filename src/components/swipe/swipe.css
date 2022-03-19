@@ -21,6 +21,15 @@
   z-index: 100;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
+.swipe__left__close-btn {
+  background: #e9e7e7;
+  position: absolute;
+  border-radius: 5px;
+  border: 1px solid #c7c3c3;
+}
+.swipe__left__close-btn svg {
+  width: 30px;
+}
 .swipe__left__title {
   text-align: center;
   font-weight: 500;

@@ -1,4 +1,11 @@
 /* primary/main color */
 /* lighter shades of primary color */
 /* darkest grey - used for headings */
-/* grey used for paragraphs *//*# sourceMappingURL=accounts.css.map */
+/* grey used for paragraphs */
+.accounts__total {
+  text-align: center;
+  font-size: 1.3rem;
+}
+.accounts__total__amount {
+  font-weight: 900;
+}/*# sourceMappingURL=accounts.css.map */

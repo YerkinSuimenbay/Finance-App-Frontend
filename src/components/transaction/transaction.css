@@ -15,6 +15,35 @@
 .transaction.list-item {
   box-shadow: unset;
 }
+.transaction__right {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  justify-content: space-between;
+  justify-items: flex-end;
+}
+.transaction__right span {
+  text-align: end;
+  white-space: nowrap;
+}
+.transaction__right__percentage {
+  color: #787c7e;
+  width: 40px;
+}
+.transaction__right__amount {
+  width: 150px;
+  overflow-x: auto;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+.transaction__right__amount::-webkit-scrollbar {
+  display: none;
+}
 
 .transaction-in-detail__loading {
   padding-left: 5px;
