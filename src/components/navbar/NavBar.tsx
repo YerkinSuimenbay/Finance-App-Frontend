@@ -14,7 +14,7 @@ import { HiOutlineLogout } from 'react-icons/hi'
 import './navbar.css'
 import icons from '../../utils/icons/icons'
 
-enum EDefaultTransactionQueries {
+export enum EDefaultTransactionQueries {
     type = 'expense',
     grouped = 'true',
     period = 'day',
@@ -37,8 +37,8 @@ export const NavBar: React.FC = () => {
                     <Link to='/'>YFinance App</Link>
                     <button className="burger-menu" onClick={() => setSidebarVisible(true)}>
                         {sidebarVisible 
-                        ? <AiOutlineMenuUnfold />
-                        : <AiOutlineMenuFold />
+                        ? <AiOutlineMenuFold />
+                        : <AiOutlineMenuUnfold />
                     }
                     </button>
                 </div> 
