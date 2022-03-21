@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useActions } from '../../hooks/useActions'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
+import { getUserInfo } from '../../utils/js/getUserInfo'
 import './profile.css'
 
 export const Profile: React.FC = () => {
@@ -44,18 +45,20 @@ export const Profile: React.FC = () => {
   }
   
 
-  let name: string = 'No name', email: string = 'No email'
-  if (localStorage.getItem('financeAppUserInfo')) {
-    const userInfoStringified = localStorage.getItem('financeAppUserInfo')
-    if (typeof userInfoStringified === 'string') {
-      const userInfo = JSON.parse(userInfoStringified)
-      name = userInfo.name
-      email = userInfo.email
-    } else {
-      name = store.user.name
-      email = store.user.email
-    }
-  }
+  // let name: string = 'No name', email: string = 'No email'
+  const { name = 'No name', email = 'No email' } = getUserInfo()
+
+  // if (localStorage.getItem('financeAppUserInfo')) {
+  //   const userInfoStringified = localStorage.getItem('financeAppUserInfo')
+  //   if (typeof userInfoStringified === 'string') {
+  //     const userInfo = JSON.parse(userInfoStringified)
+  //     name = userInfo.name
+  //     email = userInfo.email
+  //   } else {
+  //     name = store.user.name
+  //     email = store.user.email
+  //   }
+  // }
   
   return (
     <div className='page profile-page'>

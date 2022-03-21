@@ -1,11 +1,15 @@
 import axios from "axios"
 import { EUserActionTypes, IUserState, TUserAction } from "../../types/user"
+import { getUserInfo } from "../../utils/js/getUserInfo"
 
 const token = localStorage.getItem("financeAppToken")
 
+// let name = ''
+// let email = ''
+const { name, email } = getUserInfo()
 const initialState: IUserState = {
-    name: '',
-    email: '',
+    name,
+    email,
     loading: false,
     error: null,
     loggedIn: !!token,
