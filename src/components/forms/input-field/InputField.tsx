@@ -11,10 +11,11 @@ interface IInputFieldProps {
   value: string | number,
   onChange: (name: string, value: string | number) => void,
   readonly?: boolean,
+  child?: React.ReactChild
 }
 
 export const InputField: React.FC<IInputFieldProps> = (props) => {
-  const { value, name, type, onChange, label, readonly=false } = props
+  const { value, name, type, onChange, label, readonly=false, children } = props
 
   const handleChange = (event:React.ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.name, event.target.value)
@@ -24,6 +25,7 @@ export const InputField: React.FC<IInputFieldProps> = (props) => {
     <div className='input-field'>
       <label htmlFor={name} className=''>{label}</label>
       <input type={type} id={name} name={name} value={value} onChange={handleChange} readOnly={readonly}/>
+      {children}
     </div>
   )
 }

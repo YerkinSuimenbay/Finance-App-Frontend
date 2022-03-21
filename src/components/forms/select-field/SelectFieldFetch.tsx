@@ -73,17 +73,18 @@ export const SelectFieldFetch: React.FC<ISelectFieldFetchProps> = (props) => {
         setShow(oldValue => !oldValue)
     }
 
+    const ArrowIcon = show 
+    ? icons.GENERAL_ICONS.IoIosArrowUp 
+    : icons.GENERAL_ICONS.IoIosArrowDown
+
     return (
         <div className='select-field' ref={selectRef}>
             <div onClick={toggleOptions}>
                 <InputField type='text' label={label} name={name} value={value} onChange={() => {}} readonly/>
-                {show 
-                ? <icons.GENERAL_ICONS.IoIosArrowUp className='select-field__arrow'/> 
-                : <icons.GENERAL_ICONS.IoIosArrowDown className='select-field__arrow'/>
-                }
+                <ArrowIcon className='select-field__arrow' style={{ top: label || '50%', transform: label || "translateY(-50%)" }} />
             </div>
             
-            <ul className="select-field__options" id="cars" style={{ display: show ? 'block' : 'none' }}>
+            <ul className="select-field__options" style={{ display: show ? 'block' : 'none', top: label || '44px' }}>
                 {loadingOptions
                 ? <li className='select-field__option loading-option'>Loading options...</li>
                 : fetchedOptions 

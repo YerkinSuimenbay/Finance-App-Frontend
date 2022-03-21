@@ -1,0 +1,55 @@
+.settings {
+    &__container {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    &__change-pwd-form {
+        box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+        background: #fff;
+        padding: 10px;
+        border-radius: 5px;
+
+        font-size: .9rem;
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 5px;
+        // background: #fff;
+        // background-color: #ececec;
+        // box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        padding: 5px;
+        margin: 10px 0;
+        align-items: center;
+        border-radius: 5px;
+
+        height: 50px;
+
+        // &:hover {
+        //     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        // }
+
+        button {
+            // background: #23f3b2;
+            align-self: stretch;
+            border-radius: 5px;
+
+            &.change {
+                background-color: #a7a7a7;
+
+                background-color: #555555;
+                color: #fff;
+            }
+        
+            &.delete {
+                background: #d7818a;
+                color: #fff;
+            }
+        }
+    }
+
+
+}

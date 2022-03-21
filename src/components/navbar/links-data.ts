@@ -31,4 +31,9 @@ export const links = [
         icon: 'BsFillFilePersonFill',
         to: '/profile'
     },
+    {
+        label: 'Settings',
+        icon: 'FiSettings',
+        to: '/settings'
+    },
 ]

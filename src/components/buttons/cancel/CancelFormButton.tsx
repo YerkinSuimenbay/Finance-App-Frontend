@@ -1,17 +1,17 @@
 import React from 'react'
-import './submit-form-button.css'
+import './cancel-form-button.css'
 
-interface ISubmitForm {
+interface ICancelForm {
     onClick: (event:React.MouseEvent<HTMLButtonElement>) => void;
     label?: string
 }
 
 
-export const SubmitFormButton: React.FC<ISubmitForm> = (props) => {
-    const { onClick, label="Submit" } = props
+export const CancelFormButton: React.FC<ICancelForm> = (props) => {
+    const { onClick, label="Cancel" } = props
     return (  
         <button 
-            className='form-btn submit-form-btn'
+            className='form-btn cancel-form-btn'
             onClick={onClick}    
         >
             {label}

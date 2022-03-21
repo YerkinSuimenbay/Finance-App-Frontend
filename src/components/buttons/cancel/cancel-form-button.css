@@ -1,0 +1,12 @@
+/* primary/main color */
+/* lighter shades of primary color */
+/* darkest grey - used for headings */
+/* grey used for paragraphs */
+.cancel-form-btn {
+  color: #d7818a;
+  background-color: #fff;
+}
+.cancel-form-btn:hover {
+  background: #d7818a;
+  color: #fff;
+}/*# sourceMappingURL=cancel-form-button.css.map */

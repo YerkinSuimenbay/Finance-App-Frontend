@@ -9,6 +9,7 @@ import { RiAccountBoxFill, RiMoneyDollarCircleLine, RiMoneyEuroCircleLine, RiMon
 import { BiDrink, BiBeer, BiCut } from 'react-icons/bi'
 import { FaTshirt, FaHands, FaCreditCard, FaTenge } from 'react-icons/fa'
 import { CgGym, CgProfile } from 'react-icons/cg'
+import { FiSettings } from 'react-icons/fi'
 import { BsFillFilePersonFill, BsSearch, BsFillCreditCard2FrontFill } from 'react-icons/bs'
 // const icons = {
 //     AiOutlineBank,
@@ -84,6 +85,7 @@ const SIDEBAR_ICONS: TIcon = {
     CgProfile,
     RiAccountBoxFill,
     BsFillFilePersonFill,
+    FiSettings,
 }
 
 const ACCOUNT_ICONS: TIcon = {

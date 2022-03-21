@@ -14,6 +14,7 @@ import { Profile } from '../pages/profile/Profile';
 import { Transactions } from '../pages/transactions/Transactions';
 import { useActions } from '../hooks/useActions';
 import { Sidebar } from '../components/navbar/Sidebar';
+import { Settings } from '../pages/settings/Settings';
 
 function App() {
   const store = useTypedSelector(state => state)
@@ -50,6 +51,7 @@ function App() {
           <Route path='/categories' element={<Categories />}/>
           <Route path='/transactions' element={<Transactions />}/>
           <Route path='/profile' element={<Profile />}/>
+          <Route path='/settings' element={<Settings />}/>
           {/* <Route path='/user' element={<UserList />}/> */}
           {/* <UserList /> */}
           {/* <TodoList /> */}

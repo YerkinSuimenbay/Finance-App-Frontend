@@ -3,9 +3,6 @@
 /* darkest grey - used for headings */
 /* grey used for paragraphs */
 .submit-form-btn {
-  border: 1px solid;
-  height: 2rem;
-  border-radius: 5px;
   color: #89ABE3FF;
   background-color: #fcf6f557;
 }

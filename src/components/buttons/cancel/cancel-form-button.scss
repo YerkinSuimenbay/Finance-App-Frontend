@@ -1,0 +1,14 @@
+@import '../../../styles/constants';
+
+.cancel-form-btn {
+    color: #d7818a;
+    background-color: #fff;
+    
+    
+    &:hover {
+        background: #d7818a;
+        color: #fff;
+
+    }
+}
+

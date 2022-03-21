@@ -52,6 +52,12 @@ button {
     justify-content: center;
     background-color: transparent;
     transition: all .3s;
+
+    &.delete {
+        padding: 3px 6px;
+        border-radius: 0.25rem;
+        color: #d7818a;
+    }
 }
 
 .page {
@@ -131,6 +137,12 @@ button {
     display: flex;
     row-gap: 1rem;
     flex-direction: column;
+
+    &-btn {
+        border: 1px solid;
+        height: 2rem;
+        border-radius: 5px;
+    }
 }
 
 .list-item {
