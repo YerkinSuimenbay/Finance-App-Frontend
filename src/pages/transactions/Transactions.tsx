@@ -28,7 +28,7 @@ type PeriodFieldChange = FixedPeriod | RangePeriod
 export const Transactions: React.FC = () => {
   const { transactions, loading, error } = useTypedSelector(state => state.transactions)
   const { account, swipe } = useTypedSelector(state => state)
-  const { fetchTransactions, showSwipe, createTransaction } = useActions()
+  const { fetchTransactions, showSwipe, createTransaction, updatePage } = useActions()
   
   const navigate = useNavigate()
   const query = useQuery()
@@ -39,6 +39,8 @@ export const Transactions: React.FC = () => {
   const to = query.get('to')
   
   useEffect(() => {
+    updatePage('Transactions')
+
     console.log('useEffect CALL');
     
     let URL = `/transactions?type=${transactionType}&grouped=${grouped}&period=${period}`

@@ -13,9 +13,10 @@ const URL = '/accounts'
 export const Accounts: React.FC = () => {
   const { data: { accounts, total }, loading, error } = useTypedSelector(state => state.accounts)
   const { account, swipe } = useTypedSelector(state => state)
-  const { fetchAccounts, showSwipe, createAccount } = useActions()
+  const { fetchAccounts, showSwipe, createAccount, updatePage } = useActions()
 
   useEffect(() => {
+    updatePage('Accounts')
     fetchAccounts(URL)
   }, [])
 

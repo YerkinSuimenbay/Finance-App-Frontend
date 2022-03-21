@@ -1,12 +1,12 @@
 import axios from 'axios'
-import React, {  } from 'react'
+import React, { useEffect } from 'react'
 import { useActions } from '../../hooks/useActions'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import './profile.css'
 
 export const Profile: React.FC = () => {
   const store = useTypedSelector(state => state)
-  const { showFeedback, logoutUser } = useActions()
+  const { showFeedback, logoutUser, updatePage } = useActions()
 
 
   const logout = () => {
@@ -15,6 +15,9 @@ export const Profile: React.FC = () => {
     logoutUser()
   }
 
+  useEffect(() => {
+    updatePage('My Profile')
+  }, [])
   
   const deleteAccount: React.MouseEventHandler<HTMLButtonElement> = async () => {
     console.log('delete account');

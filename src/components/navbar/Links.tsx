@@ -12,18 +12,7 @@ interface ILinksProps {
 export const Links: React.FC<ILinksProps> = (props) => {
     const { type } = props
 
-    const { hideSidebar, updatePage } = useActions()
-   
-
-    const handleNavLinkClick = (label: string) => {
-        return () => {
-            hideSidebar()
-
-            // const pageLabel = label.toLowerCase() as TPages
-            // updatePage(pageLabel)
-            updatePage(label)
-        }
-    }
+    const { hideSidebar } = useActions()
 
     return (
         <>
@@ -34,7 +23,7 @@ export const Links: React.FC<ILinksProps> = (props) => {
                 return <li>
                 <NavLink 
                     to={to}
-                    onClick={handleNavLinkClick(label)}
+                    onClick={() => hideSidebar()}
 
                     // className={({ isActive }) => isActive ? "activeeee": ''}  // BY DEFAULT ACTIVE CLASS IS ASSIGNED 
                 >

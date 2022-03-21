@@ -1,7 +1,7 @@
 import { EPageActionTypes, IPageState, TPageAction } from "../../types/page";
 
 const initialState: IPageState = {
-    currentPage: 'home',
+    currentPage: 'YFinance App',
 }
 
 export const pageReducer = (state = initialState, action: TPageAction): IPageState => {

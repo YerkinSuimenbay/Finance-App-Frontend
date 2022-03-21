@@ -11,9 +11,10 @@ const URL = '/categories'
 export const Categories: React.FC = () => {
   const { categories, loading, error } = useTypedSelector(state => state.categories)
   const { account, swipe } = useTypedSelector(state => state)
-  const { fetchCategories, showSwipe, createCategory } = useActions()
+  const { fetchCategories, showSwipe, createCategory, updatePage } = useActions()
 
   useEffect(() => {
+    updatePage('Categories')
     fetchCategories(URL)
   }, [])
 
