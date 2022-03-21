@@ -5,14 +5,15 @@ import { InputField } from '../../components/forms/input-field/InputField'
 import { PeriodField } from '../../components/forms/period-field/PeriodField'
 import { SelectField } from '../../components/forms/select-field/SelectField'
 import { SelectFieldFetch } from '../../components/forms/select-field/SelectFieldFetch'
+import { LoaderComponent } from '../../components/loader/Loader'
 import { useActions } from '../../hooks/useActions'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 
 import './settings.css'
 
 export const Settings: React.FC = () => {
-  const store = useTypedSelector(state => state)
-  const { updatePage, fetchAccounts } = useActions()
+  const { settings, loading, error } = useTypedSelector(state => state.user)
+  const { updatePage, fetchAccounts, updateUserSettings } = useActions()
 
   const [passwordFieldsVisible, setPasswordFieldsVisible] = useState(false)
 
@@ -35,6 +36,22 @@ export const Settings: React.FC = () => {
 
   const requestAccounts = async (cb: (res: any) => void) => cb(await fetchAccounts('/accounts'))
 
+  const handleChange = async (name: string, value: string | number) => {
+      console.log({ [name]: value });
+      // let settings_value = value
+      // if (name === 'app_language') {
+      //   if (value === 'Қазақ') settings_value = 'kz'
+      //   if (value === 'Русский') settings_value = 'ru'
+      //   if (value === 'English') settings_value = 'en'
+      // }
+      updateUserSettings(name, value)
+    try {
+      
+    } catch (error) {
+      
+    }
+  }
+  if (loading) return <LoaderComponent text='Saving changes...'/>
 
   return (
     <div className='page settings-page'>
@@ -59,15 +76,15 @@ export const Settings: React.FC = () => {
 
         <div className='settings__item'>
           <p>App language</p>
-          <SelectField label='' name='language' value='English' options={['Қазақ', 'Русский', 'English']} onChange={() => {}}/>
+          <SelectField label='' name='app_language' value={settings.app_language} options={['Қазақ', 'Русский', 'English']} onChange={handleChange}/>
         </div>
         <div className='settings__item'>
           <p>Default account </p>
-          <SelectFieldFetch label='' name='account' value='kaspi' fetchOptions={requestAccounts} onChange={() => {}}/>
+          <SelectFieldFetch label='' name='default_account' value={settings.default_account} fetchOptions={requestAccounts} onChange={handleChange}/>
         </div>
         <div className='settings__item'>
           <p>Default Period</p>
-          <SelectField label='' name='period' value='Day' options={['Day', 'Week', 'Month', 'Year']} onChange={() => {}}/>
+          <SelectField label='' name='default_period' value={settings.default_period} options={['Day', 'Week', 'Month', 'Year']} onChange={handleChange}/>
         </div>
         <div className='settings__item'>
           <p>Delete all data</p>

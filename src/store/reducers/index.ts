@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { authReducer } from "./userReducer";
 import { todoReducer } from "./todoReducer";
-import { userReducer } from "./usersReducer";
+// import { userReducer } from "./usersReducer";
 import { feedbackReducer } from "./feedbackReducer";
 import { accountsReducer } from "./accountsReducer";
 import { swipeReducer } from "./swipeReducer";
@@ -16,7 +16,7 @@ import { pageReducer} from './pageReducer'
 
 
 export const rootReducer = combineReducers({
-    users: userReducer,
+    // users: userReducer,
     todo: todoReducer,
     user: authReducer,
     feedback: feedbackReducer,

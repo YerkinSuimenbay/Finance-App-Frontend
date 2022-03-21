@@ -16,11 +16,11 @@ export const Links: React.FC<ILinksProps> = (props) => {
 
     return (
         <>
-            {links.map(link => {
+            {links.map((link) => {
                 const { label, to, icon } = link
                 const Icon = icon ? icons.SIDEBAR_ICONS[icon] : icons.SIDEBAR_ICONS.AiOutlineHome
                 
-                return <li>
+                return <li key={to}>
                 <NavLink 
                     to={to}
                     onClick={() => hideSidebar()}
