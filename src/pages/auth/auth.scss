@@ -3,7 +3,10 @@ $bg-clr: #F0EFF4;
 
 .auth {
     background-color: $bg-clr;
-    min-height: 100vh;
+    
+    // min-height: 100vh;
+    min-height: vh(100);
+    
     min-width: 100vw;
     display: flex;
     justify-content: center;

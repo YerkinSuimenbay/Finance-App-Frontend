@@ -18,6 +18,16 @@ if (localStorage && localStorage.token) {
 }
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
+
+function setDocHeight() {
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);
+};
+
+window.addEventListener('resize', setDocHeight);
+window.addEventListener('orientationchange', setDocHeight);
+setDocHeight();
+
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

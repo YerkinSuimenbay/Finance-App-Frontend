@@ -1,3 +1,11 @@
+@function vh($quantity) {
+    @return calc(var(--vh, 1vh) * #{$quantity});
+}
+
+// .fullheight {
+// height: vh(100);
+// }
+
 $width: 95%;
 $nav-height: 60px;
 $z-index-bg: 1000;

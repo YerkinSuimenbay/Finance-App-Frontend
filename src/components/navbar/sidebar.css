@@ -18,7 +18,7 @@
   justify-content: space-between;
   align-items: inherit;
   flex-direction: column;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 }
 .sidebar__top {
   background-color: #6787b7;
