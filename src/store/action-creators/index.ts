@@ -10,6 +10,9 @@ import * as CategoriesActionCreators from './categories'
 import * as CategoryActionCreators from './category'
 import * as TransactionsActionCreators from './transactions'
 import * as TransactionActionCreators from './transaction'
+import * as SidebarActionCreators from './sidebar'
+import * as PageActionCreators from './page'
+
 
 const actionCreators = {
     ...UsersActionCreators,
@@ -24,6 +27,8 @@ const actionCreators = {
     ...CategoryActionCreators,
     ...TransactionsActionCreators,
     ...TransactionActionCreators,
+    ...SidebarActionCreators,
+    ...PageActionCreators,
 }
 
 export default actionCreators

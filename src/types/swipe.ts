@@ -1,5 +1,6 @@
+import { TPages } from "./page"
+
 export type TSwipeType = 'left' | 'right' | 'up' | 'bottom'
-export type TPages = 'accounts' | 'categories' | 'transactions'
 export type TMode = 'edit' | 'create'
 export interface ISwipeState {
     visible: boolean,

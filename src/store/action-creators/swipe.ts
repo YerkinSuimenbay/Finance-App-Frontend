@@ -1,4 +1,5 @@
-import { ESwipeActionTypes, TMode, TPages, TSwipeAction, TSwipeType } from "../../types/swipe"
+import { TPages } from "../../types/page";
+import { ESwipeActionTypes, TMode, TSwipeAction, TSwipeType } from "../../types/swipe"
 
 export const showSwipe = (type: TSwipeType, currentPage: TPages, mode: TMode): TSwipeAction => {
     return { type: ESwipeActionTypes.SHOW_SWIPE, payload: {

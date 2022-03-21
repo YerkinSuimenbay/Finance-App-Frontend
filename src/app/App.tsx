@@ -13,6 +13,7 @@ import { Home } from '../pages/home/Home';
 import { Profile } from '../pages/profile/Profile';
 import { Transactions } from '../pages/transactions/Transactions';
 import { useActions } from '../hooks/useActions';
+import { Sidebar } from '../components/navbar/Sidebar';
 
 function App() {
   const store = useTypedSelector(state => state)
@@ -26,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
+    <BrowserRouter>
       <Feedback />
       <SwipeLeft />
 
@@ -41,6 +42,7 @@ function App() {
       </Routes> 
       : <>
         <NavBar />
+        <Sidebar />
 
         <Routes>
           <Route path='/' element={<Home />}/>
@@ -60,7 +62,7 @@ function App() {
         </Routes>
         </>
       }
-      </BrowserRouter>
+    </BrowserRouter>
     </div>
   );
 }

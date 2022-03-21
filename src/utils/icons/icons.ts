@@ -1,15 +1,15 @@
 import { IconType } from 'react-icons/lib'
 import './icons.css'
-import { AiOutlineBank, AiOutlineHome, AiOutlineCar, AiFillCar, AiOutlineShoppingCart, AiOutlineWifi } from 'react-icons/ai'
-import { MdOutlineAddBox, MdAttachMoney, MdMoney, MdFastfood, MdOutlineFastfood, MdOutlineHealthAndSafety, MdOutlineSchool, MdSportsBar, MdOutlineFamilyRestroom, MdRestaurant, MdRestaurantMenu } from 'react-icons/md'
+import { AiFillHome, AiOutlineBank, AiOutlineHome, AiOutlineCar, AiFillCar, AiOutlineShoppingCart, AiOutlineWifi } from 'react-icons/ai'
+import { MdAccountBalance, MdCategory, MdOutlineAddBox, MdAttachMoney, MdMoney, MdFastfood, MdOutlineFastfood, MdOutlineHealthAndSafety, MdOutlineSchool, MdSportsBar, MdOutlineFamilyRestroom, MdRestaurant, MdRestaurantMenu, MdOutlineCategory } from 'react-icons/md'
 import { IoIosArrowDown, IoIosArrowUp, IoIosArrowForward, IoIosBeer, IoMdBus, IoMdShirt, IoMdSchool } from 'react-icons/io'
 import { GiMoneyStack, GiTakeMyMoney, GiPayMoney, GiReceiveMoney, GiMeal, GiHotMeal, GiWineBottle, GiHealthNormal, GiMedicines, GiSlicedBread, GiKickScooter } from 'react-icons/gi'
 import { GrMoney } from 'react-icons/gr'
-import { RiMoneyDollarCircleLine, RiMoneyEuroCircleLine, RiMoneyPoundCircleLine, RiBusFill } from 'react-icons/ri'
+import { RiAccountBoxFill, RiMoneyDollarCircleLine, RiMoneyEuroCircleLine, RiMoneyPoundCircleLine, RiBusFill } from 'react-icons/ri'
 import { BiDrink, BiBeer, BiCut } from 'react-icons/bi'
-import { FaTshirt, FaHands } from 'react-icons/fa'
-import { CgGym } from 'react-icons/cg'
-import { BsSearch } from 'react-icons/bs'
+import { FaTshirt, FaHands, FaCreditCard, FaTenge } from 'react-icons/fa'
+import { CgGym, CgProfile } from 'react-icons/cg'
+import { BsFillFilePersonFill, BsSearch, BsFillCreditCard2FrontFill } from 'react-icons/bs'
 // const icons = {
 //     AiOutlineBank,
 // }
@@ -68,8 +68,22 @@ const GENERAL_ICONS: TIcon = {
     IoIosArrowDown,
     IoIosArrowUp,
     IoIosArrowForward,
-    MdOutlineAddBox,
     BsSearch,
+    MdOutlineAddBox,
+}
+
+const SIDEBAR_ICONS: TIcon = {
+    AiOutlineHome,
+    AiFillHome,
+    BsFillCreditCard2FrontFill,
+    FaCreditCard,
+    MdOutlineCategory,
+    MdCategory,
+    FaTenge,
+    MdAccountBalance,
+    CgProfile,
+    RiAccountBoxFill,
+    BsFillFilePersonFill,
 }
 
 const ACCOUNT_ICONS: TIcon = {
@@ -77,6 +91,7 @@ const ACCOUNT_ICONS: TIcon = {
 }
 
 export default {
+    SIDEBAR_ICONS,
     GENERAL_ICONS,
     ACCOUNT_ICONS,
     CATEGORY_ICONS,

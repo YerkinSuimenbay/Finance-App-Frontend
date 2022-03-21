@@ -1,0 +1,68 @@
+/* primary/main color */
+/* lighter shades of primary color */
+/* darkest grey - used for headings */
+/* grey used for paragraphs */
+.sidebar {
+  color: #fff;
+  transform: translateX(-100%);
+  transition: transform 0.3s linear;
+}
+.sidebar.show {
+  transform: translateX(0);
+}
+.sidebar__center {
+  min-height: 100%;
+  width: 75%;
+  background-color: #24292f;
+  display: flex;
+  justify-content: space-between;
+  align-items: inherit;
+  flex-direction: column;
+  height: 100vh;
+}
+.sidebar__top {
+  background-color: #6787b7;
+  font-size: 2rem;
+  padding: 0 1rem;
+  line-height: 60px;
+}
+.sidebar__middle {
+  flex: 1;
+  padding-top: 1rem;
+}
+.sidebar__middle__links {
+  display: grid;
+  row-gap: 1rem;
+}
+.sidebar__middle__links li a {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  font-size: 1.1rem;
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  align-items: center;
+}
+.sidebar__middle__links li a svg {
+  width: 22px;
+}
+.sidebar__bottom {
+  padding: 0.3rem 1rem;
+  background-color: #6787b7;
+  display: flex;
+  align-items: center;
+}
+.sidebar__bottom__logout-btn {
+  font-size: 1rem;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+  background: #a7a7a7;
+  border: 1px solid;
+  padding: 3px 10px 3px 5px;
+  border-radius: 0.25rem;
+}
+.sidebar__bottom__logout-btn svg {
+  width: 30px;
+}/*# sourceMappingURL=sidebar.css.map */

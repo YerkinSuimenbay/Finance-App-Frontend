@@ -11,6 +11,8 @@ import { categoriesReducer } from "./categoriesReducer";
 import { categoryReducer} from './categoryReducer'
 import { transactionsReducer } from "./transactionsReducer";
 import { transactionReducer} from './transactionReducer'
+import { sidebarReducer} from './sidebarReducer'
+import { pageReducer} from './pageReducer'
 
 
 export const rootReducer = combineReducers({
@@ -26,6 +28,8 @@ export const rootReducer = combineReducers({
     category: categoryReducer,
     transactions: transactionsReducer,
     transaction: transactionReducer,
+    sidebar: sidebarReducer,
+    page: pageReducer,
 })
 
 export type RootState = ReturnType<typeof rootReducer>
