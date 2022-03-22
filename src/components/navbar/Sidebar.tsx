@@ -16,6 +16,7 @@ export const Sidebar: React.FC = () => {
         localStorage.removeItem('financeAppToken')
         localStorage.removeItem('financeAppUserInfo')
         logoutUser()
+        hideSidebar()
       }
 
     return (
