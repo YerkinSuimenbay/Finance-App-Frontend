@@ -20,19 +20,19 @@ export const fetchTransaction = (url: string) => {
 export const editTransaction = (payload: ITransactionEdit): TTransactionAction => {
     return { type: ETransactionActionTypes.EDIT_TRANSACTION, payload }
 }
-export const createTransaction = (): TTransactionAction => {
+export const createTransaction = (default_account: string): TTransactionAction => {
     return { type: ETransactionActionTypes.CREATE_TRANSACTION, payload: {
         _id: '',
         type: '',
         amount: 0,
-        account: '',
+        account: default_account,
         currency: '' as ECurrency,
         color: '#ffffff',
         comment: '',
         category: '',
         // createdBy: string,
         createdAt: new Date().toISOString().split('T')[0],
-        updatedAt: new Date().toISOString().split('T')[0],
+        // updatedAt: new Date().toISOString().split('T')[0],
         icon: '',
         percentage: 0
     } }

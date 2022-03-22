@@ -13,7 +13,6 @@ import { HiOutlineLogout } from 'react-icons/hi'
 // import { useTypedSelector } from '../../hooks/useTypedSelector'
 import './navbar.css'
 
-import { links } from './links-data'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { useActions } from '../../hooks/useActions'
 import { Links } from './Links'

@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { CancelFormButton } from '../../components/buttons/cancel/CancelFormButton'
 import { SubmitFormButton } from '../../components/buttons/submit/SubmitFormButton'
@@ -13,9 +14,15 @@ import './settings.css'
 
 export const Settings: React.FC = () => {
   const { settings, loading, error } = useTypedSelector(state => state.user)
-  const { updatePage, fetchAccounts, updateUserSettings } = useActions()
+  const { updatePage, fetchAccounts, updateUserSettings, showFeedback } = useActions()
 
-  const [passwordFieldsVisible, setPasswordFieldsVisible] = useState(false)
+  const [passwordFields, setPasswordFields] = useState({
+    loading: false,
+    visible: false,
+    oldPwd: '',
+    newPwd: '',
+    repeatPwd: ''
+  })
 
   useEffect(() => {
     updatePage('Settings')
@@ -23,15 +30,40 @@ export const Settings: React.FC = () => {
 
 
   const togglePasswordForm = () => {
-    setPasswordFieldsVisible(oldValue => !oldValue)
+    setPasswordFields(oldValue => ({ ...oldValue, visible: !oldValue.visible }))
+    // setPasswordFieldsVisible(oldValue => !oldValue)
   }
 
-  const submitPasswordChange: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+  const changePasswordFields = (name: string, value: string | number) => {
+    setPasswordFields(oldValue => ({ ...oldValue, [name]: value }))
+  }
+
+  const submitPasswordChange: React.MouseEventHandler<HTMLButtonElement> = async (e) => {
     e.preventDefault()
+    const { oldPwd, newPwd, repeatPwd } = passwordFields
+    if (!oldPwd || !newPwd || !repeatPwd) return showFeedback('danger', 'Please feel all neseccary fields to change password')
+    
+    try {
+      setPasswordFields(oldValue => ({ ...oldValue, loading: true }))
+
+      await axios.patch('user/password', { oldPwd, newPwd, repeatPwd })
+
+      showFeedback('success', 'Password has been changed successfully')
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        showFeedback('danger', error.response?.data.msg || 'Server Error')
+      } else if (error instanceof Error) {
+        console.log(error.message);
+        showFeedback('danger', error.message)
+      }
+    } finally {
+      setPasswordFields(oldValue => ({ ...oldValue, loading: false }))
+    }
   }
   const cancelPasswordChange: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault()
-    setPasswordFieldsVisible(false)
+    setPasswordFields(oldValue => ({ ...oldValue, visible: false }))
+    // setPasswordFieldsVisible(false)
   }
 
   const requestAccounts = async (cb: (res: any) => void) => cb(await fetchAccounts('/accounts'))
@@ -51,7 +83,7 @@ export const Settings: React.FC = () => {
       
     }
   }
-  if (loading) return <LoaderComponent text='Saving changes...'/>
+  if (loading || passwordFields.loading) return <LoaderComponent text='Saving changes...'/>
 
   return (
     <div className='page settings-page'>
@@ -65,10 +97,10 @@ export const Settings: React.FC = () => {
           <button className='change' onClick={togglePasswordForm}>Change password</button>
         </div>
         
-        {passwordFieldsVisible && <form className='settings__change-pwd-form form'>
-          <InputField type='password' label='Old pwd' name='pwd' value={''} onChange={() => {}} />
-          <InputField type='password' label='New pwd' name='pwd' value={''} onChange={() => {}} />
-          <InputField type='password' label='Repeat pwd' name='pwd' value={''} onChange={() => {}} />
+        {passwordFields.visible && <form className='settings__change-pwd-form form'>
+          <InputField type='password' label='Old pwd' name='oldPwd' value={passwordFields.oldPwd} onChange={changePasswordFields} />
+          <InputField type='password' label='New pwd' name='newPwd' value={passwordFields.newPwd} onChange={changePasswordFields} />
+          <InputField type='password' label='Repeat pwd' name='repeatPwd' value={passwordFields.repeatPwd} onChange={changePasswordFields} />
           <SubmitFormButton label='Change password' onClick={submitPasswordChange}/>
           <CancelFormButton label='Cancel' onClick={cancelPasswordChange}/>
         </form>}

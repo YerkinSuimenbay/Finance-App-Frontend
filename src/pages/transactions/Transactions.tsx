@@ -27,6 +27,7 @@ type PeriodFieldChange = FixedPeriod | RangePeriod
 
 export const Transactions: React.FC = () => {
   const { transactions, loading, error } = useTypedSelector(state => state.transactions)
+  const { settings: { default_account } } = useTypedSelector(state => state.user)
   const { account, swipe } = useTypedSelector(state => state)
   const { fetchTransactions, showSwipe, createTransaction, updatePage } = useActions()
   
@@ -53,7 +54,7 @@ export const Transactions: React.FC = () => {
 
 
   const onClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void> => {
-    createTransaction()
+    createTransaction(default_account)
     showSwipe('left', 'transactions', 'create')
   }
 

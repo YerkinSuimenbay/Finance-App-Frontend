@@ -2,17 +2,59 @@ import React from 'react'
 import icons from '../../utils/icons/icons'
 import { NavLink } from 'react-router-dom'
 import { useActions } from '../../hooks/useActions'
-import { links } from './links-data'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
+// import { links } from './links-data'
 
 
 interface ILinksProps {
     type: 'navbar' | 'sidebar'
 }
 
+export enum EDefaultTransactionQueries {
+    type = 'expense',
+    grouped = 'true',
+    period = 'day',
+}
+
+
 export const Links: React.FC<ILinksProps> = (props) => {
     const { type } = props
+    const { settings: { default_period } } = useTypedSelector(state => state.user)
 
     const { hideSidebar } = useActions()
+
+    const links = [
+        {
+            label: 'Home',
+            icon: 'AiOutlineHome',
+            to: '/'
+        },
+        {
+            label: 'Accounts',
+            icon: 'MdAccountBalance',
+            to: '/accounts'
+        },
+        {
+            label: 'Categories',
+            icon: 'MdCategory',
+            to: '/categories'
+        },
+        {
+            label: 'Transactions',
+            icon: 'FaTenge',
+            to: `/transactions?type=${EDefaultTransactionQueries.type}&grouped=${EDefaultTransactionQueries.grouped}&period=${default_period.toLowerCase() || EDefaultTransactionQueries.period}`,
+        },
+        {
+            label: 'My Profile',
+            icon: 'BsFillFilePersonFill',
+            to: '/profile'
+        },
+        {
+            label: 'Settings',
+            icon: 'FiSettings',
+            to: '/settings'
+        },
+    ]
 
     return (
         <>

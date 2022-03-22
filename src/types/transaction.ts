@@ -15,7 +15,7 @@ export interface ITransaction {
     category: string,
     // createdBy: string,
     createdAt: string,
-    updatedAt: string, 
+    // updatedAt: string, 
     icon: string,
     percentage: number
 }

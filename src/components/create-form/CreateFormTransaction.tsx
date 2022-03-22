@@ -19,6 +19,7 @@ interface CreateFormTransactionProps {
 export const CreateFormTransaction: React.FC<CreateFormTransactionProps> = (props) => {
     const { createForm: transaction, onChange, onSubmit } = props
     const { fetchAccounts, fetchCategories } = useActions()
+    
     const typeQuery = useQuery().get('type')
 
     const { _id, type, amount, account, currency, color, comment, category, createdAt, updatedAt } = transaction
