@@ -14,6 +14,12 @@ export const Category: React.FC<ICategoryProps> = (props) => {
 
     const { fetchCategory, showSwipe } = useActions()
     const handleCategoryClick = async (categoryId: string) => {
+        // PREVENTS CLICK EVENT WHEN SELECTING --- START
+        const selection = window.getSelection();
+        // console.log(selection.toString());
+        if(selection?.toString()) return
+        // PREVENTS CLICK EVENT WHEN SELECTING --- FINISH
+        
         console.log(categoryId);
         const acc = await fetchCategory(`/categories/${categoryId}`)
         // console.log(account,swipe);

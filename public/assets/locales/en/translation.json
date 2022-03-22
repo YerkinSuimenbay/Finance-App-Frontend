@@ -1,0 +1,32 @@
+{
+    "page_title": "Welcome to React and react-i18next",
+    "Home": "Home",
+    "Accounts": "Accounts",
+    "Categories": "Categories",
+    "Transactions": "Transactions",
+
+    "Account": "Account",
+    "Category": "Category",
+    "Transaction": "Transaction",
+
+    "My Profile": "My Profile",
+    "Settings": "Settings",
+
+    "Total": "Total",
+
+    "expense": "expense",
+    "income": "income",
+
+    "Name": "Name",
+    "Email": "Email",
+    "Color": "Color",
+    "Currency": "Currency",
+    "Total Cash": "Total Cash",
+    "Icon": "Icon",
+    "Type": "Type",
+    "Amount": "Amount",
+    "Created at": "Created at",
+    "Comment": "Comment"
+    
+
+}

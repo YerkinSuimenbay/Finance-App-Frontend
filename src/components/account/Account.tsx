@@ -15,6 +15,12 @@ export const Account: React.FC<IAccountProps> = (props) => {
 
     const { fetchAccount, setFormAccount, showSwipe } = useActions()
     const handleAccountClick = async (accountId: string) => {
+        // PREVENTS CLICK EVENT WHEN SELECTING --- START
+        const selection = window.getSelection();
+        // console.log(selection.toString());
+        if(selection?.toString()) return
+        // PREVENTS CLICK EVENT WHEN SELECTING --- FINISH
+        
         console.log(accountId);
         const acc = await fetchAccount(`/accounts/${accountId}`)
         // console.log(account,swipe);

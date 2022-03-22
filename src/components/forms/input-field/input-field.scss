@@ -1,6 +1,7 @@
 @import '../../../styles/constants';
 
 .input-field {
+    position: relative;
     // display: flex;
     // flex-direction: column;
     width: 100%;
@@ -28,5 +29,23 @@
         &:read-only {
             cursor: pointer;
         }
+
+        &[type=password] {
+            padding-right: 30px;
+        }
     }
+}
+
+.password-eye {
+    cursor: pointer;
+    position: absolute;
+    top: 35px;
+    right: 10px;
+    // transition: all .3s linear;
+
+    width: 20px;
+
+    // &:hover {
+    //     transform: scale(1.2);
+    // }
 }

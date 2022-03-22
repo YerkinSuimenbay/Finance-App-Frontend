@@ -6,6 +6,7 @@ import { onChangeFunctionType } from '../../components/create-form/CreateForm'
 import { InputField } from '../../components/forms/input-field/InputField'
 import { useActions } from '../../hooks/useActions'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
+import icons from '../../utils/icons/icons'
 import './auth.css'
 
 interface ILoginForm {
@@ -56,7 +57,7 @@ export const Login: React.FC = () => {
         <h3 className="auth__container__title">Login</h3>
         <form className="form auth__container__form">
           <InputField type="email" name="email" value={loginForm.email} label='Email:' onChange={handleChange}/>
-          <InputField type="password" name="password" value={loginForm.password} label='Password:' onChange={handleChange}/>
+          <InputField type="password" name="password" value={loginForm.password} label='Password:' onChange={handleChange} />
          
           {/* <label htmlFor="birthday">Birthday:</label>
           <input type="date" id="birthday" name="birthday" /> */}

@@ -10,7 +10,31 @@ import { LoaderComponent } from '../../components/loader/Loader'
 import { useActions } from '../../hooks/useActions'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 
+import i18next from 'i18next'
+
 import './settings.css'
+
+
+
+const languages = [
+  {
+    code: 'kz',
+    name: 'Қазақ',
+    country_code: 'kz',
+  },
+  {
+    code: 'en',
+    name: 'English',
+    country_code: 'gb',
+  },
+  {
+    code: 'ru',
+    name: 'Русский',
+    // dir: 'rtl',
+    country_code: 'ru',
+  },
+]
+
 
 export const Settings: React.FC = () => {
   const { settings, loading, error } = useTypedSelector(state => state.user)
@@ -79,12 +103,14 @@ export const Settings: React.FC = () => {
 
   const handleChange = async (name: string, value: string | number) => {
       console.log({ [name]: value });
-      // let settings_value = value
-      // if (name === 'app_language') {
-      //   if (value === 'Қазақ') settings_value = 'kz'
-      //   if (value === 'Русский') settings_value = 'ru'
-      //   if (value === 'English') settings_value = 'en'
-      // }
+      let country_code = 'en'
+      if (name === 'app_language') {
+        if (value === 'Қазақ') country_code = 'kz'
+        if (value === 'Русский') country_code = 'ru'
+        if (value === 'English') country_code = 'en'
+
+        i18next.changeLanguage(country_code)
+      }
       updateUserSettings(name, value)
     try {
       

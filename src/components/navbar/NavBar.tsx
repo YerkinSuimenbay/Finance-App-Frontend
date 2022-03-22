@@ -24,7 +24,7 @@ const SOCIAL_MEDIA_SHARE_URL = window.location.href
 export const NavBar: React.FC = () => {
     const { visible: sidebarVisible } = useTypedSelector(state => state.sidebar)
     const { currentPage } = useTypedSelector(state => state.page)
-    const { showSidebar, hideSidebar } = useActions()
+    const { showSidebar } = useActions()
 
 
     const isMobile = useIsMobile()

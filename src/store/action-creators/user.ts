@@ -26,10 +26,11 @@ export const authUser = (url: string, dataToSend: {}) => {
 export const updateUserSettings = (setting_name: string, setting_value: string | number) => {
     return async (dispatch: Dispatch<TUserAction>) => {
         try {
+            
             dispatch({ type: EUserActionTypes.UPDATE_USER_SETTINGS })
-           
+            
             const res = await axios.patch('user/settings', { [setting_name]: setting_value })
-            const { user: { name, email, settings } } = res.data
+            const { name, email, settings } = res.data
             
             dispatch({ type: EUserActionTypes.UPDATE_USER_SETTINGS_SUCCESS, payload: { setting_name, setting_value } })
             

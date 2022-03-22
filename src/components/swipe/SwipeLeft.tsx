@@ -75,7 +75,7 @@ export const SwipeLeft = () => {
 
     return (
         <div className={getSwipeContainerClassName()} onDoubleClick={hideSwipeFunction} onMouseOver={handleSwipeContainerMouseOver}>
-            <div className={getSwipeClassName()} ref={swipeRef} onClick={e => e.stopPropagation()} onMouseOver={handleSwipeMouseOver}>
+            <div className={getSwipeClassName()} ref={swipeRef} onDoubleClick={e => e.stopPropagation()} onMouseOver={handleSwipeMouseOver}>
                 <button className='swipe__left__close-btn' onClick={hideSwipeFunction}>
                    <icons.GENERAL_ICONS.IoIosArrowForward />
                 </button>

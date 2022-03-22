@@ -3,6 +3,7 @@
 /* darkest grey - used for headings */
 /* grey used for paragraphs */
 .input-field {
+  position: relative;
   width: 100%;
   max-width: 100%;
   display: block;
@@ -24,4 +25,15 @@
 }
 .input-field input:read-only {
   cursor: pointer;
+}
+.input-field input[type=password] {
+  padding-right: 30px;
+}
+
+.password-eye {
+  cursor: pointer;
+  position: absolute;
+  top: 35px;
+  right: 10px;
+  width: 20px;
 }/*# sourceMappingURL=input-field.css.map */

@@ -1,6 +1,6 @@
 import { IconType } from 'react-icons/lib'
 import './icons.css'
-import { AiFillHome, AiOutlineBank, AiOutlineHome, AiOutlineCar, AiFillCar, AiOutlineShoppingCart, AiOutlineWifi } from 'react-icons/ai'
+import { AiFillEyeInvisible, AiFillEye, AiFillHome, AiOutlineBank, AiOutlineHome, AiOutlineCar, AiFillCar, AiOutlineShoppingCart, AiOutlineWifi } from 'react-icons/ai'
 import { MdAccountBalance, MdCategory, MdOutlineAddBox, MdAttachMoney, MdMoney, MdFastfood, MdOutlineFastfood, MdOutlineHealthAndSafety, MdOutlineSchool, MdSportsBar, MdOutlineFamilyRestroom, MdRestaurant, MdRestaurantMenu, MdOutlineCategory } from 'react-icons/md'
 import { IoIosArrowDown, IoIosArrowUp, IoIosArrowForward, IoIosBeer, IoMdBus, IoMdShirt, IoMdSchool } from 'react-icons/io'
 import { GiMoneyStack, GiTakeMyMoney, GiPayMoney, GiReceiveMoney, GiMeal, GiHotMeal, GiWineBottle, GiHealthNormal, GiMedicines, GiSlicedBread, GiKickScooter } from 'react-icons/gi'
@@ -71,6 +71,8 @@ const GENERAL_ICONS: TIcon = {
     IoIosArrowForward,
     BsSearch,
     MdOutlineAddBox,
+    AiFillEye,
+    AiFillEyeInvisible,
 }
 
 const SIDEBAR_ICONS: TIcon = {

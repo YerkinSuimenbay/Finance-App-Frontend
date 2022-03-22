@@ -20,9 +20,9 @@ export const CreateFormAccount: React.FC<CreateFormAccountProps> = (props) => {
     const { createForm: account, onChange, onSubmit } = props
     return (
         <form className="form swipe__left__body__form">
-            <InputField type='text' label='Account Name:' name="name" value={account.name} onChange={onChange}/>
-            <InputField type='color' label='Account Color:' name="color" value={account.color} onChange={onChange}/>
-            <RadioField label="Account Currency:" name="currency" options={[
+            <InputField type='text' label='Name:' name="name" value={account.name} onChange={onChange}/>
+            <InputField type='color' label='Color:' name="color" value={account.color} onChange={onChange}/>
+            <RadioField label="Currency:" name="currency" options={[
                 {
                     value: ECurrency.KZT,
                     display_value: ECurrency.KZT,
@@ -41,7 +41,7 @@ export const CreateFormAccount: React.FC<CreateFormAccountProps> = (props) => {
             ]}
                 onChange={onChange}
             />
-            <InputField type='number' label='Account Total Cash:' name="totalCash" value={account.totalCash} onChange={onChange}/>
+            <InputField type='number' label='Total Cash:' name="totalCash" value={account.totalCash} onChange={onChange}/>
             <SubmitFormButton onClick={onSubmit}/>
         </form>
     )

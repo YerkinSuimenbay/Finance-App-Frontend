@@ -31,6 +31,12 @@ export const Transaction: React.FC<IGroupedTransactionProps> = (props) => {
     const [loadingCategorizedTransactions, setLoadingCategorizedTransactions] = useState(false)
 
     const handleTransactionClick = async (transactionId: string) => {
+        // PREVENTS CLICK EVENT WHEN SELECTING --- START
+        const selection = window.getSelection();
+        // console.log(selection.toString());
+        if(selection?.toString()) return
+        // PREVENTS CLICK EVENT WHEN SELECTING --- FINISH
+
         const acc = await fetchTransaction(`/transactions/${transactionId}`)
     
         // setFormTransaction(acc as unknown as ITransaction)
@@ -38,6 +44,12 @@ export const Transaction: React.FC<IGroupedTransactionProps> = (props) => {
     }
 
     const handleGroupedTransactionClick = async () => {
+        // PREVENTS CLICK EVENT WHEN SELECTING --- START
+        const selection = window.getSelection();
+        // console.log(selection.toString());
+        if(selection?.toString()) return
+        // PREVENTS CLICK EVENT WHEN SELECTING --- FINISH
+        
         try {
             setLoadingCategorizedTransactions(true)
             setShowTransitionInDetail(oldValue => !oldValue)

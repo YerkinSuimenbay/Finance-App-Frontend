@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { useActions } from '../../hooks/useActions'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 // import { links } from './links-data'
+import { useTranslation, initReactI18next } from "react-i18next";
 
 
 interface ILinksProps {
@@ -20,37 +21,38 @@ export enum EDefaultTransactionQueries {
 export const Links: React.FC<ILinksProps> = (props) => {
     const { type } = props
     const { settings: { default_period } } = useTypedSelector(state => state.user)
-
     const { hideSidebar } = useActions()
+
+    const { t } = useTranslation();
 
     const links = [
         {
-            label: 'Home',
+            label: t('Home'),
             icon: 'AiOutlineHome',
             to: '/'
         },
         {
-            label: 'Accounts',
+            label: t('Accounts'),
             icon: 'MdAccountBalance',
             to: '/accounts'
         },
         {
-            label: 'Categories',
+            label: t('Categories'),
             icon: 'MdCategory',
             to: '/categories'
         },
         {
-            label: 'Transactions',
+            label: t('Transactions'),
             icon: 'FaTenge',
             to: `/transactions?type=${EDefaultTransactionQueries.type}&grouped=${EDefaultTransactionQueries.grouped}&period=${default_period.toLowerCase() || EDefaultTransactionQueries.period}`,
         },
         {
-            label: 'My Profile',
+            label: t('My Profile'),
             icon: 'BsFillFilePersonFill',
             to: '/profile'
         },
         {
-            label: 'Settings',
+            label: t('Settings'),
             icon: 'FiSettings',
             to: '/settings'
         },

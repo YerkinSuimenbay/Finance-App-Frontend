@@ -41,7 +41,7 @@ export const CreateFormTransaction: React.FC<CreateFormTransactionProps> = (prop
 
     return (
         <form className="form swipe__left__body__form">
-            <RadioField label="Transaction Type:" name="type" options={[
+            <RadioField label="Type:" name="type" options={[
                 {
                     value: ETransactionType.EXPENSE,
                     display_value: ETransactionType.EXPENSE,
@@ -56,14 +56,14 @@ export const CreateFormTransaction: React.FC<CreateFormTransactionProps> = (prop
                 onChange={handleRadioFieldChange}
             />
 
-            <TransactionField type='number' label='Transaction Amount:' name="amount" value={amount} onChange={onChange} currency={currency}/>
+            <TransactionField type='number' label='Amount:' name="amount" value={amount} onChange={onChange} currency={currency}/>
             
-            <SelectFieldFetch label='Transaction Account' name='account' value={account} fetchOptions={requestAccounts} onChange={onChange}/>
-            <SelectFieldFetch label='Transaction Category' name='category' value={category} fetchOptions={requestCategories} onChange={onChange}/>
+            <SelectFieldFetch label='Account' name='account' value={account} fetchOptions={requestAccounts} onChange={onChange}/>
+            <SelectFieldFetch label='Category' name='category' value={category} fetchOptions={requestCategories} onChange={onChange}/>
 
-            <InputField type='date' label='Transaction created at:' name="createdAt" value={createdAt.slice(0, 10)} onChange={onChange}/>
+            <InputField type='date' label='Created at:' name="createdAt" value={createdAt.slice(0, 10)} onChange={onChange}/>
 
-            <InputField type='text' label='Transaction Comment:' name="comment" value={comment} onChange={onChange}/>
+            <InputField type='text' label='Comment:' name="comment" value={comment} onChange={onChange}/>
             {/* <InputField type='color' label='Transaction Color:' name="color" value={color} onChange={onChange}/> */}
             <SubmitFormButton onClick={onSubmit}/>
         </form>
