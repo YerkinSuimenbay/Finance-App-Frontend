@@ -7,16 +7,6 @@
     // }
 }
 
-.no-transaction {
-    color: #ff6000;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    row-gap: 5px;
-}
-
 .transactions {
     &__switch {
         display: flex;

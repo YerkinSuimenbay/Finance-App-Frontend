@@ -121,6 +121,16 @@ button {
     }
 }
 
+.no-item {
+    color: #ff6000;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 5px;
+    margin-top: 1rem;
+}
 .background {
     position: fixed;
     top: 0;

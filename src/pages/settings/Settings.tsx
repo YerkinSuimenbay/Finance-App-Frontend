@@ -24,6 +24,8 @@ export const Settings: React.FC = () => {
     repeatPwd: ''
   })
 
+  const [deletingAllData, setDeletingAllData] = useState(false)
+
   useEffect(() => {
     updatePage('Settings')
   }, [])
@@ -53,7 +55,6 @@ export const Settings: React.FC = () => {
       if (axios.isAxiosError(error)) {
         showFeedback('danger', error.response?.data.msg || 'Server Error')
       } else if (error instanceof Error) {
-        console.log(error.message);
         showFeedback('danger', error.message)
       }
     } finally {
@@ -83,7 +84,25 @@ export const Settings: React.FC = () => {
       
     }
   }
-  if (loading || passwordFields.loading) return <LoaderComponent text='Saving changes...'/>
+
+
+
+  const deleteAllData = async () => {
+    try {
+      setDeletingAllData(true)
+      await axios.delete('user/deleteAllData')
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        showFeedback('danger', error.response?.data.msg || 'Server Error')
+      } else if (error instanceof Error) {
+        showFeedback('danger', error.message)
+      }
+    } finally {
+      setDeletingAllData(false)
+    }
+  }
+
+  if (loading || passwordFields.loading || deletingAllData) return <LoaderComponent text='Saving changes...'/>
 
   return (
     <div className='page settings-page'>
@@ -120,7 +139,7 @@ export const Settings: React.FC = () => {
         </div>
         <div className='settings__item'>
           <p>Delete all data</p>
-          <button className='delete'>Delete all data</button>
+          <button className='delete' onClick={deleteAllData}>Delete all data</button>
         </div>
       </div>
       

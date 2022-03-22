@@ -4,6 +4,7 @@ import { CreateButton } from '../../components/buttons/create/CreateButton'
 import { LoaderComponent } from '../../components/loader/Loader'
 import { useActions } from '../../hooks/useActions'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
+import icons from '../../utils/icons/icons'
 import { formatValue } from '../../utils/js/formatValue'
 
 import './accounts.css'
@@ -51,7 +52,13 @@ export const Accounts: React.FC = () => {
     
       
       <div className="page__list">
-        {accounts.map(account => <Account key={account._id} {...account} />)}
+        {accounts.length 
+        ? accounts.map(account => <Account key={account._id} {...account} />)
+        : <div className='no-item'>
+            <icons.GENERAL_ICONS.BsSearch className="no-item__top" style={{ width: 50 }} />
+            <span className="no-item__bottom">No Account Found</span>
+          </div>
+        }
       </div>
         
       <CreateButton onClick={onClick} label="account"/>

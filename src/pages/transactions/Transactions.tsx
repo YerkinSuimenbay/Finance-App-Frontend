@@ -101,9 +101,9 @@ export const Transactions: React.FC = () => {
         ? <LoaderComponent text='Loading transactions...'/>
         : transactions.length 
           ? transactions.map(transaction => <Transaction key={transaction.category} {...transaction} />)
-          : <div className='no-transaction'>
-              <icons.GENERAL_ICONS.BsSearch className="no-transaction__top" style={{ width: 50 }} />
-              <span className="no-transaction__bottom">No Transaction Found</span>
+          : <div className='no-item'>
+              <icons.GENERAL_ICONS.BsSearch className="no-item__top" style={{ width: 50 }} />
+              <span className="no-item__bottom">No Transaction Found</span>
             </div>
       }
     </div>

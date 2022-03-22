@@ -4,6 +4,7 @@ import { Category } from '../../components/category/Category'
 import { LoaderComponent } from '../../components/loader/Loader'
 import { useActions } from '../../hooks/useActions'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
+import icons from '../../utils/icons/icons'
 import './categories.css'
 
 const URL = '/categories'
@@ -24,21 +25,22 @@ export const Categories: React.FC = () => {
     showSwipe('left', 'categories', 'create')
   }
 
-  if (loading) {
-    return <LoaderComponent text='Loading categories...'/>
-
-  }
+  if (loading) return <LoaderComponent text='Loading categories...'/>
   
-  if (error) {
-    return <h2 className='error-msg'>{error}</h2>
-  }
+  if (error) return <h2 className='error-msg'>{error}</h2>
 
   return (
     <div className='page accounts-page'>
       {/* <header className='page__title'>Categories</header> */}
   
       <div className="page__list">
-        {categories.map(category => <Category key={category._id} {...category} />)}
+        {categories.length 
+        ? categories.map(category => <Category key={category._id} {...category} />) 
+        : <div className='no-item'>
+            <icons.GENERAL_ICONS.BsSearch className="no-item__top" style={{ width: 50 }} />
+            <span className="no-item__bottom">No Category Found</span>
+          </div>
+        }
       </div>
       
       <CreateButton onClick={onClick} label="category"/>
