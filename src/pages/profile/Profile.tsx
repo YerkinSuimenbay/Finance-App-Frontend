@@ -7,13 +7,14 @@ import './profile.css'
 
 export const Profile: React.FC = () => {
   const store = useTypedSelector(state => state)
-  const { showFeedback, logoutUser, updatePage } = useActions()
+  const { showFeedback, logoutUser, updatePage, hideSidebar } = useActions()
 
 
   const logout = () => {
     localStorage.removeItem('financeAppToken')
     localStorage.removeItem('financeAppUserInfo')
     logoutUser()
+    hideSidebar()
   }
 
   useEffect(() => {
