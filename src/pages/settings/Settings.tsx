@@ -51,15 +51,23 @@ export const Settings: React.FC = () => {
       await axios.patch('user/password', { oldPwd, newPwd, repeatPwd })
 
       showFeedback('success', 'Password has been changed successfully')
+    
+      setPasswordFields({ 
+        loading: false,
+        visible: false,
+        oldPwd: '',
+        newPwd: '',
+        repeatPwd: '' 
+      })
     } catch (error) {
       if (axios.isAxiosError(error)) {
         showFeedback('danger', error.response?.data.msg || 'Server Error')
       } else if (error instanceof Error) {
         showFeedback('danger', error.message)
       }
-    } finally {
+
       setPasswordFields(oldValue => ({ ...oldValue, loading: false }))
-    }
+    } 
   }
   const cancelPasswordChange: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault()
