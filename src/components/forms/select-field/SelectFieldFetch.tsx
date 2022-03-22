@@ -87,7 +87,7 @@ export const SelectFieldFetch: React.FC<ISelectFieldFetchProps> = (props) => {
             <ul className="select-field__options" style={{ display: show ? 'block' : 'none', top: label || '44px' }}>
                 {loadingOptions
                 ? <li className='select-field__option loading-option'>Loading options...</li>
-                : fetchedOptions 
+                : fetchedOptions?.length 
                   ? fetchedOptions.map(option => <li key={option} className='select-field__option' onClick={handleOptionClick(option)}>{option}</li>)
                   : <li className='select-field__option no-option'>No options found</li>
                 }

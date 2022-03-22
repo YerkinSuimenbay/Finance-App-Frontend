@@ -32,3 +32,7 @@ export const fetchAccounts = (url: string) => {
         }
     }
 }
+
+export const cleanUpAccounts = ():TAccountsAction => {
+    return { type: EAccountsActionTypes.CLEAN_UP_ACCOUNTS }
+}

@@ -14,11 +14,13 @@ const URL = '/accounts'
 export const Accounts: React.FC = () => {
   const { data: { accounts, total }, loading, error } = useTypedSelector(state => state.accounts)
   const { account, swipe } = useTypedSelector(state => state)
-  const { fetchAccounts, showSwipe, createAccount, updatePage } = useActions()
+  const { fetchAccounts, showSwipe, createAccount, updatePage, cleanUpAccounts } = useActions()
 
-  useEffect(() => {
+  useEffect((): any => {
     updatePage('Accounts')
     fetchAccounts(URL)
+
+    return () => cleanUpAccounts()
   }, [])
 
 
@@ -29,7 +31,6 @@ export const Accounts: React.FC = () => {
 
   if (loading) {
     return <LoaderComponent text='Loading accounts...'/>
-
   }
   
   if (error) {
@@ -45,21 +46,24 @@ export const Accounts: React.FC = () => {
   return (
     <div className='page accounts-page'>
       {/* <header className='page__title'>Accounts</header> */}
+      {accounts.length 
+      ?
+      <>
       <div className='accounts__total'>
         <span className='grey'>Total: </span>
         <span className='accounts__total__amount'>{formatValue(total, 'number')} KZT</span>
       </div>
+      <div className="page__list">
+        {accounts.map(account => <Account key={account._id} {...account} />)}
+      </div>
+      </> 
+      : <div className='no-item'>
+          <icons.GENERAL_ICONS.BsSearch className="no-item__top" style={{ width: 50 }} />
+          <span className="no-item__bottom">No Account Found</span>
+        </div>
+      }
     
       
-      <div className="page__list">
-        {accounts.length 
-        ? accounts.map(account => <Account key={account._id} {...account} />)
-        : <div className='no-item'>
-            <icons.GENERAL_ICONS.BsSearch className="no-item__top" style={{ width: 50 }} />
-            <span className="no-item__bottom">No Account Found</span>
-          </div>
-        }
-      </div>
         
       <CreateButton onClick={onClick} label="account"/>
     </div>

@@ -5,8 +5,8 @@ const initialState: IAccountsState = {
         accounts: [],
         total: 0,
     },
-    loading: false,
-    error: null
+    loading: true,  // false PREVIOUSLY
+    error: null,
 }
 
 export const accountsReducer = (state = initialState, action: TAccountsAction): IAccountsState => {
@@ -17,6 +17,8 @@ export const accountsReducer = (state = initialState, action: TAccountsAction): 
             return { ...state, loading: false, data: { accounts: action.payload.accounts, total: action.payload.total }, error: null }
         case (EAccountsActionTypes.FETCH_ACCOUNTS_ERROR):
             return { ...state, loading: false, error: action.payload, data: { accounts: [], total: 0 } }
+        case (EAccountsActionTypes.CLEAN_UP_ACCOUNTS):
+            return { ...state, loading: true, error: null, data: { accounts: [], total: 0 } }
         default:
             return state
     }

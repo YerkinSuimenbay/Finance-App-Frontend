@@ -1,13 +1,13 @@
 import { IconType } from 'react-icons/lib'
 import './icons.css'
-import { AiFillEyeInvisible, AiFillEye, AiFillHome, AiOutlineBank, AiOutlineHome, AiOutlineCar, AiFillCar, AiOutlineShoppingCart, AiOutlineWifi } from 'react-icons/ai'
+import { AiOutlineQuestion, AiFillGift, AiFillEyeInvisible, AiFillEye, AiFillHome, AiOutlineBank, AiOutlineHome, AiOutlineCar, AiFillCar, AiOutlineShoppingCart, AiOutlineWifi } from 'react-icons/ai'
 import { MdAccountBalance, MdCategory, MdOutlineAddBox, MdAttachMoney, MdMoney, MdFastfood, MdOutlineFastfood, MdOutlineHealthAndSafety, MdOutlineSchool, MdSportsBar, MdOutlineFamilyRestroom, MdRestaurant, MdRestaurantMenu, MdOutlineCategory } from 'react-icons/md'
-import { IoIosArrowDown, IoIosArrowUp, IoIosArrowForward, IoIosBeer, IoMdBus, IoMdShirt, IoMdSchool } from 'react-icons/io'
+import { IoIosFitness, IoIosArrowDown, IoIosArrowUp, IoIosArrowForward, IoIosBeer, IoMdBus, IoMdShirt, IoMdSchool } from 'react-icons/io'
 import { GiMoneyStack, GiTakeMyMoney, GiPayMoney, GiReceiveMoney, GiMeal, GiHotMeal, GiWineBottle, GiHealthNormal, GiMedicines, GiSlicedBread, GiKickScooter } from 'react-icons/gi'
 import { GrMoney } from 'react-icons/gr'
-import { RiAccountBoxFill, RiMoneyDollarCircleLine, RiMoneyEuroCircleLine, RiMoneyPoundCircleLine, RiBusFill } from 'react-icons/ri'
+import { RiHeartPulseFill, RiAccountBoxFill, RiMoneyDollarCircleLine, RiMoneyEuroCircleLine, RiMoneyPoundCircleLine, RiBusFill } from 'react-icons/ri'
 import { BiDrink, BiBeer, BiCut } from 'react-icons/bi'
-import { FaTshirt, FaHands, FaCreditCard, FaTenge } from 'react-icons/fa'
+import { FaTheaterMasks, FaTshirt, FaHands, FaCreditCard, FaTenge } from 'react-icons/fa'
 import { CgGym, CgProfile } from 'react-icons/cg'
 import { FiSettings } from 'react-icons/fi'
 import { BsFillFilePersonFill, BsSearch, BsFillCreditCard2FrontFill } from 'react-icons/bs'
@@ -63,6 +63,11 @@ const CATEGORY_ICONS: TIcon = {
     // MdRestaurant,
     // MdRestaurantMenu,
     BsSearch,
+    FaTheaterMasks,
+    RiHeartPulseFill,
+    AiFillGift,
+    IoIosFitness,
+    AiOutlineQuestion,
 }
 
 const GENERAL_ICONS: TIcon = {

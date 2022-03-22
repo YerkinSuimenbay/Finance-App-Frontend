@@ -11,7 +11,8 @@ export interface ICategoriesState {
 export enum ECategoriesActionTypes {
     FETCH_CATEGORIES = 'FETCH_CATEGORIES',
     FETCH_CATEGORIES_SUCCESS = 'FETCH_CATEGORIES_SUCCESS',
-    FETCH_CATEGORIES_ERROR = 'FETCH_CATEGORIES_ERROR'
+    FETCH_CATEGORIES_ERROR = 'FETCH_CATEGORIES_ERROR',
+    CLEAN_UP_CATEGORIES = 'CLEAN_UP_CATEGORIES',
 }
 
 interface IFetchCategoriesAction {
@@ -28,4 +29,8 @@ interface IFetchCategoriesActionError {
     payload: string
 }
 
-export type TCategoriesAction = IFetchCategoriesAction | IFetchCategoriesActionSuccess | IFetchCategoriesActionError
+interface ICleanUpCategoriesAction {
+    type: ECategoriesActionTypes.CLEAN_UP_CATEGORIES
+}
+
+export type TCategoriesAction = IFetchCategoriesAction | IFetchCategoriesActionSuccess | IFetchCategoriesActionError | ICleanUpCategoriesAction

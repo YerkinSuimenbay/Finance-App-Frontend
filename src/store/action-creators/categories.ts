@@ -26,3 +26,7 @@ export const fetchCategories = (url: string) => {
         }
     }
 }
+
+export const cleanUpCategories = ():TCategoriesAction => {
+    return { type: ECategoriesActionTypes.CLEAN_UP_CATEGORIES }
+}

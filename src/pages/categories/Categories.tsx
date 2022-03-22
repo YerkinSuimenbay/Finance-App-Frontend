@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import { CreateButton } from '../../components/buttons/create/CreateButton'
 import { Category } from '../../components/category/Category'
 import { LoaderComponent } from '../../components/loader/Loader'
@@ -12,11 +12,13 @@ const URL = '/categories'
 export const Categories: React.FC = () => {
   const { categories, loading, error } = useTypedSelector(state => state.categories)
   const { account, swipe } = useTypedSelector(state => state)
-  const { fetchCategories, showSwipe, createCategory, updatePage } = useActions()
+  const { fetchCategories, showSwipe, createCategory, updatePage, cleanUpCategories } = useActions()
 
-  useEffect(() => {
+  useEffect((): any => {
     updatePage('Categories')
     fetchCategories(URL)
+
+    return () => cleanUpCategories()
   }, [])
 
 
@@ -30,6 +32,7 @@ export const Categories: React.FC = () => {
   if (error) return <h2 className='error-msg'>{error}</h2>
 
   return (
+    <Suspense fallback={<h1>Loading profile...</h1>}>
     <div className='page accounts-page'>
       {/* <header className='page__title'>Categories</header> */}
   
@@ -45,6 +48,8 @@ export const Categories: React.FC = () => {
       
       <CreateButton onClick={onClick} label="category"/>
     </div>
+    </Suspense>
+
   )
 }
 
