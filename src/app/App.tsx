@@ -52,8 +52,8 @@ function App() {
           {/* <Route path='/' element={<Home />}/> */}
           <Route path='/accounts' element={<Accounts />}/>
           <Route path='/categories' element={<Categories />}/>
-          {/* <Route path='/transactions' element={<Transactions />}/> */}
-          <Route path={`/transactions?type=${EDefaultTransactionQueries.type}&grouped=${EDefaultTransactionQueries.grouped}&period=${default_period.toLowerCase() || EDefaultTransactionQueries.period}`} element={<Transactions />}/>
+          <Route path='/transactions' element={<Transactions />}/>
+          {/* <Route path={`/transactions?type=${EDefaultTransactionQueries.type}&grouped=${EDefaultTransactionQueries.grouped}&period=${default_period.toLowerCase() || EDefaultTransactionQueries.period}`} element={<Transactions />}/> */}
 
           <Route path='/profile' element={<Profile />}/>
           <Route path='/settings' element={<Settings />}/>
@@ -64,7 +64,8 @@ function App() {
           <Route  // REDIRECT TO LOGIN
             path="*"
             // element={<Navigate to="/" />}
-            element={<Navigate to="/transactions" />}
+            // element={<Navigate to="/transactions" />}
+            element={<Navigate to={`/transactions?type=${EDefaultTransactionQueries.type}&grouped=${EDefaultTransactionQueries.grouped}&period=${default_period.toLowerCase() || EDefaultTransactionQueries.period}`} />}
           />
 
         </Routes>
