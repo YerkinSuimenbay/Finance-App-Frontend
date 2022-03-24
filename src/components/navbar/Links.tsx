@@ -26,11 +26,11 @@ export const Links: React.FC<ILinksProps> = (props) => {
     const { t } = useTranslation();
 
     const links = [
-        {
-            label: t('Home'),
-            icon: 'AiOutlineHome',
-            to: '/'
-        },
+        // {
+        //     label: t('Home'),
+        //     icon: 'AiOutlineHome',
+        //     to: '/'
+        // },
         {
             label: t('Accounts'),
             icon: 'MdAccountBalance',

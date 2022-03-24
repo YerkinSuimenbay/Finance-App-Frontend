@@ -46,7 +46,7 @@ function App() {
         <Sidebar />
 
         <Routes>
-          <Route path='/' element={<Home />}/>
+          {/* <Route path='/' element={<Home />}/> */}
           <Route path='/accounts' element={<Accounts />}/>
           <Route path='/categories' element={<Categories />}/>
           <Route path='/transactions' element={<Transactions />}/>
@@ -58,7 +58,8 @@ function App() {
 
           <Route  // REDIRECT TO LOGIN
             path="*"
-            element={<Navigate to="/" />}
+            // element={<Navigate to="/" />}
+            element={<Navigate to="/transactions" />}
           />
 
         </Routes>
