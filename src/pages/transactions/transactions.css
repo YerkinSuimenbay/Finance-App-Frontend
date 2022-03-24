@@ -3,11 +3,6 @@
 /* darkest grey - used for headings */
 /* grey used for paragraphs */
 .transactions__switch {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  -moz-column-gap: 1rem;
-       column-gap: 1rem;
   margin: 1rem 0;
 }
 .transactions__switch button {

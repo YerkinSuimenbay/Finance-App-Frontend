@@ -11,7 +11,8 @@ export interface ITransactionsState {
 export enum ETransactionsActionTypes {
     FETCH_TRANSACTIONS = 'FETCH_TRANSACTIONS',
     FETCH_TRANSACTIONS_SUCCESS = 'FETCH_TRANSACTIONS_SUCCESS',
-    FETCH_TRANSACTIONS_ERROR = 'FETCH_TRANSACTIONS_ERROR'
+    FETCH_TRANSACTIONS_ERROR = 'FETCH_TRANSACTIONS_ERROR',
+    CLEAN_UP_TRANSACTIONS = 'CLEAN_UP_TRANSACTIONS',
 }
 
 interface IFetchTransactionsAction {
@@ -28,4 +29,8 @@ interface IFetchTransactionsActionError {
     payload: string
 }
 
-export type TTransactionsAction = IFetchTransactionsAction | IFetchTransactionsActionSuccess | IFetchTransactionsActionError
+interface ICleanUpTransactionsAction {
+    type: ETransactionsActionTypes.CLEAN_UP_TRANSACTIONS
+}
+
+export type TTransactionsAction = IFetchTransactionsAction | IFetchTransactionsActionSuccess | IFetchTransactionsActionError | ICleanUpTransactionsAction

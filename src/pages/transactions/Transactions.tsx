@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { CreateButton } from '../../components/buttons/create/CreateButton'
 import { PeriodField, TPeriod } from '../../components/forms/period-field/PeriodField'
 import { LoaderComponent } from '../../components/loader/Loader'
+import { SwitchExpenseIncome } from '../../components/switchExpenseIncome/SwitchExpenseIncome'
 import { Transaction } from '../../components/transaction/Transaction'
 import { useActions } from '../../hooks/useActions'
 import { useQuery } from '../../hooks/useQuery'
@@ -29,17 +30,17 @@ export const Transactions: React.FC = () => {
   const { transactions, loading, error } = useTypedSelector(state => state.transactions)
   const { settings: { default_account } } = useTypedSelector(state => state.user)
   const { account, swipe } = useTypedSelector(state => state)
-  const { fetchTransactions, showSwipe, createTransaction, updatePage } = useActions()
+  const { fetchTransactions, showSwipe, createTransaction, updatePage, cleanUpTransactions } = useActions()
   
   const navigate = useNavigate()
   const query = useQuery()
-  const transactionType = query.get('type')
+  const transactionType = query.get('type') as ETransactionType
   const grouped = query.get('grouped')
   const period = query.get('period') as TPeriod
   const from = query.get('from')
   const to = query.get('to')
   
-  useEffect(() => {
+  useEffect((): any => {
     updatePage('Transactions')
 
     console.log('useEffect CALL');
@@ -49,6 +50,8 @@ export const Transactions: React.FC = () => {
       URL += `&from=${from}&to=${to}` 
     }
     fetchTransactions(URL)
+
+    return () => cleanUpTransactions()
   // }, [transactionType, grouped, period, fromDate, toDate])
   }, [transactionType, grouped])
 
@@ -58,7 +61,7 @@ export const Transactions: React.FC = () => {
     showSwipe('left', 'transactions', 'create')
   }
 
-  const switchTransactions = (newTransactionType: ETransactionType) => {
+  const switchType= (newTransactionType: ETransactionType) => {
     let URL = `/transactions?type=${newTransactionType}&grouped=${grouped}&period=${period}`
     // if (from && to) {
     //   URL += `&from=${from}&to=${to}` 
@@ -88,10 +91,10 @@ export const Transactions: React.FC = () => {
       {/* <header className='page__title'>Transactions</header> */}
 
       <div className='transactions__switch'>
-        <button onClick={() => switchTransactions(ETransactionType.EXPENSE)} className={transactionType === ETransactionType.EXPENSE ? 'active' : ''}>{ETransactionType.EXPENSE.toUpperCase()}</button>
-        <button onClick={() => switchTransactions(ETransactionType.INCOME)} className={transactionType === ETransactionType.INCOME ? 'active' : ''}>{ETransactionType.INCOME.toUpperCase()}</button>
+        <SwitchExpenseIncome type={transactionType} onClick={switchType}/>
       </div>
     
+
       <div className='transactions__periods'>
         <PeriodField value={period} onChange={handlePeriodChange} from={from} to={to}/>
       </div>

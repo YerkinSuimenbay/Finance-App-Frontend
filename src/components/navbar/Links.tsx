@@ -39,7 +39,7 @@ export const Links: React.FC<ILinksProps> = (props) => {
         {
             label: t('Categories'),
             icon: 'MdCategory',
-            to: '/categories'
+            to: `/categories?type=${EDefaultTransactionQueries.type}`
         },
         {
             label: t('Transactions'),

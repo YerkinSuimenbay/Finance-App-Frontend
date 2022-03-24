@@ -14,6 +14,8 @@ export const transactionsReducer = (state = initialState, action: TTransactionsA
             return { ...state, loading: false, transactions: action.payload }
         case (ETransactionsActionTypes.FETCH_TRANSACTIONS_ERROR):
             return { ...state, loading: false, error: action.payload }
+        case (ETransactionsActionTypes.CLEAN_UP_TRANSACTIONS):
+            return { ...state, loading: true, error: null, transactions: [] }
         default:
             return state
     }

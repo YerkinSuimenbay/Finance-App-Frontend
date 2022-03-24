@@ -24,3 +24,7 @@ export const fetchTransactions = (url: string) => {
         }
     }
 }
+
+export const cleanUpTransactions = ():TTransactionsAction => {
+    return { type: ETransactionsActionTypes.CLEAN_UP_TRANSACTIONS }
+}
