@@ -15,10 +15,13 @@ import { Transactions } from '../pages/transactions/Transactions';
 import { useActions } from '../hooks/useActions';
 import { Sidebar } from '../components/navbar/Sidebar';
 import { Settings } from '../pages/settings/Settings';
+import { EDefaultTransactionQueries } from '../components/navbar/Links';
 
 function App() {
   const store = useTypedSelector(state => state)
+  const { default_period } = store.user.settings
   const { authUser } = useActions()
+
   const { user, swipe } = store
   console.log(store);  
 
@@ -49,7 +52,9 @@ function App() {
           {/* <Route path='/' element={<Home />}/> */}
           <Route path='/accounts' element={<Accounts />}/>
           <Route path='/categories' element={<Categories />}/>
-          <Route path='/transactions' element={<Transactions />}/>
+          {/* <Route path='/transactions' element={<Transactions />}/> */}
+          <Route path={`/transactions?type=${EDefaultTransactionQueries.type}&grouped=${EDefaultTransactionQueries.grouped}&period=${default_period.toLowerCase() || EDefaultTransactionQueries.period}`} element={<Transactions />}/>
+
           <Route path='/profile' element={<Profile />}/>
           <Route path='/settings' element={<Settings />}/>
           {/* <Route path='/user' element={<UserList />}/> */}
